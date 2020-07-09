@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PhotoContextProvider from "./context/PhotoContext";
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 import Header from "./components/Header";
-import Item from "./components/Item";
+import Category from "./components/Category";
 import Search from "./components/Search";
 import NotFound from "./components/NotFound";
 
@@ -37,11 +37,11 @@ class App extends Component {
 
               <Route
                 path="/mountain"
-                render={() => <Item searchTerm="mountain" />}
+                render={() => <Category searchTerm="mountain" />}
               />
-              <Route path="/beach" render={() => <Item searchTerm="beach" />} />
-              <Route path="/bird" render={() => <Item searchTerm="bird" />} />
-              <Route path="/food" render={() => <Item searchTerm="food" />} />
+              <Route path="/beach" render={() => <Category searchTerm="beach" />} />
+              <Route path="/bird" render={() => <Category searchTerm="bird" />} />
+              <Route path="/food" render={() => <Category searchTerm="food" />} />
               <Route
                 path="/search/:searchInput"
                 render={props => (

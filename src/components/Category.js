@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "./Container";
 
-const Item = ({ searchTerm }) => {
+const Category = ({ searchTerm }) => {
   return (
     <div>
       <h2>{searchTerm} Pictures</h2>
@@ -10,4 +10,4 @@ const Item = ({ searchTerm }) => {
   );
 };
 
-export default Item;
+export default Category;
