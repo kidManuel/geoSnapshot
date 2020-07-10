@@ -1,5 +1,5 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
   return (
@@ -11,7 +11,7 @@ const Navigation = () => {
         <li><NavLink to="/food">Food</NavLink></li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;

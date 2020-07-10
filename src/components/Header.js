@@ -1,6 +1,6 @@
-import React from 'react'
-import Form from './Form'
-import Navigation from './Navigation'
+import React from 'react';
+import Form from './Form';
+import Navigation from './Navigation';
 
 const Header = ({ history, handleSubmit }) => {
   return (
@@ -9,7 +9,7 @@ const Header = ({ history, handleSubmit }) => {
       <Form history={history} handleSubmit={handleSubmit} />
       <Navigation />
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

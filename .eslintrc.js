@@ -18,5 +18,7 @@ module.exports = {
     'react'
   ],
   rules: {
+    'semi': ['error', 'always'],
+    'space-before-function-paren': ["error", "never"]
   }
 }
