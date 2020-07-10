@@ -1,15 +1,26 @@
 import React, { createContext, useState } from 'react';
 import axios from 'axios';
-import { apiKey } from '../api/config';
+import {
+  apiBaseUrl,
+  apiKey,
+  perPageItems,
+  desiredFormat,
+  otherParams
+} from '../const';
+
 export const PhotoContext = createContext();
 
 const PhotoContextProvider = props => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const getApiUrl = (query) => {
+    return `${apiBaseUrl}&api_key=${apiKey}&tags=${query}&per_page=${perPageItems}&format=${desiredFormat}${otherParams}`
+  };
+
   const runSearch = query => {
     axios
       .get(
-        `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`
+        getApiUrl(query)
       )
       .then(response => {
         setImages(response.data.photos.photo);
