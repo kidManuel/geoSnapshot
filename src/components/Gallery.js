@@ -6,7 +6,7 @@ const Gallery = props => {
   let images;
   let noImages;
   // map variables to each item in fetched image array and return image component
-  if (results.length > 0) {
+  if (results.length) {
     images = results.map(image => {
       const farm = image.farm;
       const server = image.server;
