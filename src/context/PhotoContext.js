@@ -1,10 +1,12 @@
 import React, { createContext, useState } from 'react';
 import axios from 'axios';
 import {
-  apiBaseUrl,
+  photoApiBaseUrl,
   apiKey,
   perPageItems,
   desiredFormat,
+  hasGeo,
+  extras,
   otherParams
 } from '../const';
 
@@ -13,17 +15,17 @@ export const PhotoContext = createContext();
 const PhotoContextProvider = props => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
-  const getApiUrl = (query) => {
-    return `${apiBaseUrl}&api_key=${apiKey}&tags=${query}&per_page=${perPageItems}&format=${desiredFormat}${otherParams}`
+
+  const getPhotoApiUrl = (query) => {
+    return `${photoApiBaseUrl}&api_key=${apiKey}&tags=${query}&has_geo=${hasGeo}&per_page=${perPageItems}&format=${desiredFormat}&extras=${extras}${otherParams}`;
   };
 
-  const runSearch = query => {
+  const fetchPhotos = query => {
     axios
-      .get(
-        getApiUrl(query)
-      )
+      .get(getPhotoApiUrl(query))
       .then(response => {
-        setImages(response.data.photos.photo);
+        const photoData = response.data.photos.photo;
+        setImages(photoData);
         setLoading(false);
       })
       .catch(error => {
@@ -33,8 +35,9 @@ const PhotoContextProvider = props => {
         );
       });
   };
+
   return (
-    <PhotoContext.Provider value={{ images, loading, runSearch }}>
+    <PhotoContext.Provider value={{ images, loading, fetchPhotos }}>
       {props.children}
     </PhotoContext.Provider>
   );
