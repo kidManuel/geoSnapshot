@@ -1,7 +1,29 @@
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Image = () => (
-  <iframe width="600" height="450" frameBorder="0" src="https://www.google.com/maps/embed/v1/place?q=Barcelona&key=AIzaSyDmYGxBHZfm1i3kGKqNgT5zXTW2gMBOw88" allowFullscreen></iframe>
-);
+import { googleMapsApiKey } from '../const';
 
-export default Image;
+const GeoLocator = ({ message, google }) => {
+  console.log(message);
+  console.log(google);
+
+  return (
+    <Map
+      google={google}
+      zoom={4}
+      // style={mapStyles}
+      initialCenter={{ lat: 47.444, lng: -122.176 }}
+    >
+    </Map>
+  );
+};
+
+export default GoogleApiWrapper({
+  apiKey: googleMapsApiKey
+})(GeoLocator);
+
+GeoLocator.propTypes = {
+  google: PropTypes.object,
+  message: PropTypes.string
+};

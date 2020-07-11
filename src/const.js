@@ -1,6 +1,6 @@
 const photoApiBaseUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search';
-const geoApiBaseUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation';
-const apiKey = '636e1481b4f3c446d26b8eb6ebfe7127';
+const flickrApiKey = '636e1481b4f3c446d26b8eb6ebfe7127';
+const googleMapsApiKey = 'AIzaSyDmYGxBHZfm1i3kGKqNgT5zXTW2gMBOw88';
 const perPageItems = 24;
 const desiredFormat = 'json';
 const otherParams = '&nojsoncallback=1';
@@ -9,8 +9,8 @@ const extras = 'geo';
 
 export {
   photoApiBaseUrl,
-  geoApiBaseUrl,
-  apiKey,
+  flickrApiKey,
+  googleMapsApiKey,
   perPageItems,
   desiredFormat,
   hasGeo,
