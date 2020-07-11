@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 import axios from 'axios';
 import {
   photoApiBaseUrl,
-  apiKey,
+  flickrApiKey,
   perPageItems,
   desiredFormat,
   hasGeo,
@@ -17,7 +17,7 @@ const PhotoContextProvider = props => {
   const [loading, setLoading] = useState(true);
 
   const getPhotoApiUrl = (query) => {
-    return `${photoApiBaseUrl}&api_key=${apiKey}&tags=${query}&has_geo=${hasGeo}&per_page=${perPageItems}&format=${desiredFormat}&extras=${extras}${otherParams}`;
+    return `${photoApiBaseUrl}&api_key=${flickrApiKey}&tags=${query}&has_geo=${hasGeo}&per_page=${perPageItems}&format=${desiredFormat}&extras=${extras}${otherParams}`;
   };
 
   const fetchPhotos = query => {
