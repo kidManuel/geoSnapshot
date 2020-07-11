@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 
 import { googleMapsApiKey } from '../const';
 
-const GeoLocator = ({ message, google }) => {
-  console.log(message);
-  console.log(google);
-
+const GeoLocator = ({ google }) => {
   return (
     <Map
       google={google}
