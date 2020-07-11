@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Category from './components/Category';
 import Search from './components/Search';
 import NotFound from './components/NotFound';
+import GeoLocator from './components/GeoLocator';
 
 class App extends Component {
   // Prevent page reload, clear input, set URL and push history on submit
@@ -52,6 +53,8 @@ class App extends Component {
             </Switch>
           </div>
         </HashRouter>
+
+        <GeoLocator />
       </PhotoContextProvider>
     );
   }
