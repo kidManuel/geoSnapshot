@@ -20,12 +20,15 @@ const Gallery = ({ data }) => {
     <div>
       {
         data.length
-          ? data.map(image =>
-            <li key={image.id}>
-              {
-                prepImage(image)
-              }
-            </li>)
+          ? <ul> {
+            data.map(image =>
+              <li key={image.id}>
+                {
+                  prepImage(image)
+                }
+              </li>)
+          }
+          </ul>
           : <NoImages />
         // return 'not found' component if no images fetched
       }
