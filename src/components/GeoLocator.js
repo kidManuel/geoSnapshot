@@ -1,8 +1,8 @@
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { googleMapsApiKey } from '../const';
+import { googleMapsApiKey } from '../util/const';
 
 const GeoLocator = ({ google }) => {
   return (

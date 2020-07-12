@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Form = ({ handleSubmit, history }) => {
   const [searchEntry, setSearchEntry] = useState('');
@@ -36,3 +37,8 @@ const Form = ({ handleSubmit, history }) => {
 };
 
 export default Form;
+
+Form.propTypes = {
+  history: PropTypes.object,
+  handleSubmit: PropTypes.func
+};
