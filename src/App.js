@@ -1,58 +1,98 @@
-import React, { Component } from "react";
-import PhotoContextProvider from "./context/PhotoContext";
-import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
-import Header from "./components/Header";
-import Category from "./components/Category";
-import Search from "./components/Search";
-import NotFound from "./components/NotFound";
+import React, { Component } from 'react';
+import axios from 'axios';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import Header from './components/Header';
+import Category from './components/Category';
+import NotFound from './components/NotFound';
+import Welcome from './components/Welcome';
+import GeoLocator from './components/GeoLocator';
+
+import { getPhotoApiUrl } from './util/apiUtil';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.fetchPhotos = this.fetchPhotos.bind(this);
+
+    this.state = {
+      currentSearch: '',
+      images: [],
+      loading: false,
+      markers: []
+    };
+  }
+
   // Prevent page reload, clear input, set URL and push history on submit
-  handleSubmit = (e, history, searchInput) => {
+  handleSubmit(e, history, searchInput) {
     e.preventDefault();
     e.currentTarget.reset();
-    let url = `/search/${searchInput}`;
-    history.push(url);
+    this.setState({
+      loading: true
+    }, () => {
+      const url = `/${searchInput}`;
+      history.push(url);
+    });
+  };
+
+  fetchPhotos(query) {
+    axios
+      .get(getPhotoApiUrl(query))
+      .then(response => {
+        const photoData = response.data.photos.photo;
+        this.setState({
+          images: photoData,
+          loading: false,
+          currentSearch: query
+        });
+      })
+      .catch(error => {
+        console.error(
+          'Encountered an error with fetching and parsing data',
+          error
+        );
+      });
   };
 
   render() {
+    const { images, loading } = this.state;
+
     return (
-      <PhotoContextProvider>
-        <HashRouter basename="/SnapScout">
-          <div className="container">
+      <main className="snapShotContainer">
+        <BrowserRouter>
+          <Route
+            render={props => (
+              <Header
+                handleSubmit={this.handleSubmit}
+                history={props.history}
+              />
+            )}
+          />
+          <Switch>
             <Route
+              exact
+              path="/"
+              component={Welcome}
+            />
+            <Route
+              path="/:searchInput"
               render={props => (
-                <Header
-                  handleSubmit={this.handleSubmit}
-                  history={props.history}
+                <Category
+                  searchTerm={props.match.params.searchInput}
+                  images={images}
+                  loading={loading}
+                  fetchCallback={this.fetchPhotos}
                 />
               )}
             />
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={() => <Redirect to="/mountain" />}
-              />
-
-              <Route
-                path="/mountain"
-                render={() => <Category searchTerm="mountain" />}
-              />
-              <Route path="/beach" render={() => <Category searchTerm="beach" />} />
-              <Route path="/bird" render={() => <Category searchTerm="bird" />} />
-              <Route path="/food" render={() => <Category searchTerm="food" />} />
-              <Route
-                path="/search/:searchInput"
-                render={props => (
-                  <Search searchTerm={props.match.params.searchInput} />
-                )}
-              />
-              <Route component={NotFound} />
-            </Switch>
-          </div>
-        </HashRouter>
-      </PhotoContextProvider>
+            <Route component={NotFound} />
+          </Switch>
+        </BrowserRouter>
+        <GeoLocator
+          items={images}
+        />
+      </main>
     );
   }
 }

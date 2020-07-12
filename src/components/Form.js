@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Form = ({ handleSubmit, history }) => {
-  const [searchEntry, setSearchEntry] = useState("");
+  const [searchEntry, setSearchEntry] = useState('');
   // update search text state
   const updateSearchInput = e => {
     setSearchEntry(e.target.value);
@@ -17,10 +18,11 @@ const Form = ({ handleSubmit, history }) => {
         placeholder="Search..."
         onChange={updateSearchInput}
         value={searchEntry}
+        className='searchInput'
       />
       <button
         type="submit"
-        className={`search-button ${searchEntry.trim() ? "active" : null}`}
+        className={`search-button ${searchEntry.trim() ? 'active' : null}`}
         disabled={!searchEntry.trim()}
       >
         <svg height="32" width="32">
@@ -36,3 +38,8 @@ const Form = ({ handleSubmit, history }) => {
 };
 
 export default Form;
+
+Form.propTypes = {
+  history: PropTypes.object,
+  handleSubmit: PropTypes.func
+};

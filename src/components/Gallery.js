@@ -1,30 +1,44 @@
-import React from "react";
-import NoImages from "./NoImages";
-import Image from "./Image";
-const Gallery = props => {
-  const results = props.data;
-  let images;
-  let noImages;
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import NoImages from './NoImages';
+
+const Gallery = ({ data }) => {
+  const prepImage = (image) => {
+    const farm = image.farm;
+    const server = image.server;
+    const id = image.id;
+    const secret = image.secret;
+    const title = image.title;
+    const url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
+    return <img className='imageElement' src={url} alt={title} />;
+  };
+
   // map variables to each item in fetched image array and return image component
-  if (results.length > 0) {
-    images = results.map(image => {
-      let farm = image.farm;
-      let server = image.server;
-      let id = image.id;
-      let secret = image.secret;
-      let title = image.title;
-      let url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
-      return <Image url={url} key={id} alt={title} />;
-    });
-  } else {
-    noImages = <NoImages />; // return 'not found' component if no images fetched
-  }
   return (
-    <div>
-      <ul>{images}</ul>
-      {noImages}
+    <div className="imageGallery">
+      {
+        data.length
+          ? <ul className="imageList"> {
+            data.map(image =>
+              <li key={image.id} className="singleImage">
+                {
+                  prepImage(image)
+                }
+              </li>)
+          }
+          </ul>
+          : <NoImages />
+        // return 'not found' component if no images fetched
+      }
     </div>
   );
 };
 
 export default Gallery;
+
+Gallery.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.object
+  )
+};

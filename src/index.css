@@ -4,42 +4,6 @@ body {
   color: #3f4850;
 }
 
-.forkongithub a {
-  background: #000;
-  color: #fff;
-  text-decoration: none;
-  font-family: arial, sans-serif;
-  text-align: center;
-  font-weight: bold;
-  padding: 5px 40px;
-  font-size: 1rem;
-  line-height: 2rem;
-  position: relative;
-  transition: 0.5s;
-}
-
-.forkongithub a:hover {
-  background: #c11;
-  color: #fff;
-}
-
-.forkongithub a::before,
-.forkongithub a::after {
-  content: "";
-  width: 100%;
-  display: block;
-  position: absolute;
-  top: 1px;
-  left: 0;
-  height: 1px;
-  background: #fff;
-}
-
-.forkongithub a::after {
-  bottom: 1px;
-  top: auto;
-}
-
 h2 {
   font-size: 2em;
   margin: 52px 0 40px;
@@ -62,24 +26,13 @@ a {
   text-decoration: none;
 }
 
-.is-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
 .search-form {
   max-width: 460px;
   display: flex;
   margin: 0 auto 32px;
 }
 
-.search-form button {
+.search-form .search-button {
   outline: none;
   border: none;
   padding: 0px 15px;
@@ -92,7 +45,7 @@ a {
   cursor: pointer;
 }
 
-input {
+.searchInput {
   font-size: 1em;
   width: 100%;
   background-color: #edeff0;
@@ -103,12 +56,12 @@ input {
   outline: none;
 }
 
-.main-nav li {
+.navSuggestion {
   width: 100%;
   margin-bottom: 1em;
 }
 
-.main-nav a {
+.navLink {
   display: block;
   background: #051c33;
   border-radius: 3px;
@@ -116,37 +69,37 @@ input {
   color: #fff;
 }
 
-.main-nav .active,
-.main-nav a:hover {
+.navSuggestion .active,
+.navLink:hover {
   background-color: #051c33;
 }
 
-.photo-container ul {
+.imageList {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   -ms-align-items: flex-start;
-  align-items: flex-start;
+  align-items: center;
 }
 
-.photo-container ul li {
+.singleImage {
   width: 220px;
-  height: 165px;
+  max-height: 165px;
   overflow: hidden;
   margin-bottom: 15px;
 }
 
-.photo-container ul img {
+.imageElement {
   width: 100%;
-  transform: scale(1.25);
-  transition: transform 1.25s;
+  transform: scale(1);
+  transition: transform 1s;
 }
 
-.photo-container li:hover img {
+.singleImage:hover .imageElement {
   transform: scale(1.65);
 }
 
-.photo-container .not-found {
+.imageGallery .not-found {
   width: 100%;
 }
 
@@ -182,7 +135,7 @@ input {
     padding-top: 2em;
   }
 
-  .photo-container li {
+  .imageGallery li {
     margin: auto;
   }
 }
@@ -205,31 +158,5 @@ input {
   .main-nav li {
     margin: 10px;
     width: 100px;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  .forkongithub {
-    position: fixed;
-    display: block;
-    top: 0;
-    right: 0;
-    width: 200px;
-    overflow: hidden;
-    height: 200px;
-    z-index: 9999;
-  }
-
-  .forkongithub a {
-    width: 200px;
-    position: absolute;
-    top: 60px;
-    right: -60px;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
   }
 }
