@@ -6,7 +6,7 @@ import Header from './components/Header';
 import Category from './components/Category';
 import NotFound from './components/NotFound';
 import Welcome from './components/Welcome';
-// import GeoLocator from './components/GeoLocator';
+import GeoLocator from './components/GeoLocator';
 
 import { getPhotoApiUrl } from './util/apiUtil';
 
@@ -89,9 +89,9 @@ class App extends Component {
             <Route component={NotFound} />
           </Switch>
         </BrowserRouter>
-        {
-          // <GeoLocator />
-        }
+        <GeoLocator
+          items={images}
+        />
       </main>
     );
   }

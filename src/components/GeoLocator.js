@@ -1,10 +1,19 @@
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import { googleMapsApiKey } from '../util/const';
 
-const GeoLocator = ({ google }) => {
+const GeoLocator = ({ google, items }) => {
+  const prepMarker = item => {
+    const { latitude, longitude, title, id } = item;
+    return <Marker
+      title={title}
+      position={{ lat: latitude, lng: longitude }}
+      key={id}
+    />;
+  };
+
   return (
     <Map
       google={google}
@@ -12,6 +21,10 @@ const GeoLocator = ({ google }) => {
       // style={mapStyles}
       initialCenter={{ lat: 47.444, lng: -122.176 }}
     >
+      {
+        items.map((item) => prepMarker(item))
+      }
+
     </Map>
   );
 };
@@ -22,5 +35,5 @@ export default GoogleApiWrapper({
 
 GeoLocator.propTypes = {
   google: PropTypes.object,
-  message: PropTypes.string
+  items: PropTypes.arrayOf(PropTypes.object)
 };
