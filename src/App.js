@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Category from './components/Category';
 import NotFound from './components/NotFound';
+import Welcome from './components/Welcome';
 // import GeoLocator from './components/GeoLocator';
 
 import { getPhotoApiUrl } from './util/apiUtil';
@@ -70,6 +71,11 @@ class App extends Component {
           />
           <Switch>
             <Route
+              exact
+              path="/"
+              component={Welcome}
+            />
+            <Route
               path="/:searchInput"
               render={props => (
                 <Category
@@ -80,9 +86,7 @@ class App extends Component {
                 />
               )}
             />
-            {
-              <Route component={NotFound} />
-            }
+            <Route component={NotFound} />
           </Switch>
         </BrowserRouter>
         {

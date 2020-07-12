@@ -18,6 +18,7 @@ const Form = ({ handleSubmit, history }) => {
         placeholder="Search..."
         onChange={updateSearchInput}
         value={searchEntry}
+        className='searchInput'
       />
       <button
         type="submit"

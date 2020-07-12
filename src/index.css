@@ -26,24 +26,13 @@ a {
   text-decoration: none;
 }
 
-.is-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
 .search-form {
   max-width: 460px;
   display: flex;
   margin: 0 auto 32px;
 }
 
-.search-form button {
+.search-form .search-button {
   outline: none;
   border: none;
   padding: 0px 15px;
@@ -56,7 +45,7 @@ a {
   cursor: pointer;
 }
 
-input {
+.searchInput {
   font-size: 1em;
   width: 100%;
   background-color: #edeff0;
@@ -67,12 +56,12 @@ input {
   outline: none;
 }
 
-.main-nav li {
+.navSuggestion {
   width: 100%;
   margin-bottom: 1em;
 }
 
-.main-nav a {
+.navLink {
   display: block;
   background: #051c33;
   border-radius: 3px;
@@ -80,37 +69,37 @@ input {
   color: #fff;
 }
 
-.main-nav .active,
-.main-nav a:hover {
+.navSuggestion .active,
+.navLink:hover {
   background-color: #051c33;
 }
 
-.photo-container ul {
+.imageList {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   -ms-align-items: flex-start;
-  align-items: flex-start;
+  align-items: center;
 }
 
-.photo-container ul li {
+.singleImage {
   width: 220px;
-  height: 165px;
+  max-height: 165px;
   overflow: hidden;
   margin-bottom: 15px;
 }
 
-.photo-container ul img {
+.imageElement {
   width: 100%;
-  transform: scale(1.25);
-  transition: transform 1.25s;
+  transform: scale(1);
+  transition: transform 1s;
 }
 
-.photo-container li:hover img {
+.singleImage:hover .imageElement {
   transform: scale(1.65);
 }
 
-.photo-container .not-found {
+.imageGallery .not-found {
   width: 100%;
 }
 
@@ -146,7 +135,7 @@ input {
     padding-top: 2em;
   }
 
-  .photo-container li {
+  .imageGallery li {
     margin: auto;
   }
 }

@@ -11,17 +11,17 @@ const Gallery = ({ data }) => {
     const secret = image.secret;
     const title = image.title;
     const url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
-    return <img src={url} key={id} alt={title} />;
+    return <img className='imageElement' src={url} alt={title} />;
   };
 
   // map variables to each item in fetched image array and return image component
   return (
-    <div>
+    <div className="imageGallery">
       {
         data.length
-          ? <ul> {
+          ? <ul className="imageList"> {
             data.map(image =>
-              <li key={image.id}>
+              <li key={image.id} className="singleImage">
                 {
                   prepImage(image)
                 }
