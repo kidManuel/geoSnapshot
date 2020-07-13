@@ -22,7 +22,7 @@ class Category extends Component {
   render() {
     const { searchTerm, loading, images } = this.props;
     return (
-      <div>
+      <div className='category'>
         <h2>{searchTerm} Pictures</h2>
         {
           loading

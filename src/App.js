@@ -59,16 +59,16 @@ class App extends Component {
     const { images, loading } = this.state;
 
     return (
-      <main className="snapShotContainer">
-        <BrowserRouter>
-          <Route
-            render={props => (
-              <Header
-                handleSubmit={this.handleSubmit}
-                history={props.history}
-              />
-            )}
-          />
+      <BrowserRouter>
+        <Route
+          render={props => (
+            <Header
+              handleSubmit={this.handleSubmit}
+              history={props.history}
+            />
+          )}
+        />
+        <main className="snapShotContainer">
           <Switch>
             <Route
               exact
@@ -88,11 +88,11 @@ class App extends Component {
             />
             <Route component={NotFound} />
           </Switch>
-        </BrowserRouter>
-        <GeoLocator
-          items={images}
-        />
-      </main>
+          <GeoLocator
+            items={images}
+          />
+        </main>
+      </BrowserRouter>
     );
   }
 }

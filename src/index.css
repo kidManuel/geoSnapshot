@@ -32,17 +32,26 @@ a {
   margin: 0 auto 32px;
 }
 
-.search-form .search-button {
+.search-button {
   outline: none;
   border: none;
   padding: 0px 15px;
   border-radius: 0 0.35em 0.35em 0;
   cursor: pointer;
+  background-color: #051c33;
+  transition: all 0.3s;
 }
 
-.active {
-  background-color: #051c33;
-  cursor: pointer;
+.search-button.active {
+  background-color: #1a65b1;
+}
+
+.searchIcon {
+  transition: all 0.2s;
+}
+
+.search-button.active .searchIcon {
+  transform: scale(1.2);
 }
 
 .searchInput {
@@ -114,6 +123,12 @@ a {
   animation: spin 2s linear infinite;
   margin-left: auto;
   margin-right: auto;
+}
+
+.snapShotContainer {
+  width: 80vw;
+  margin: 0 auto;
+  position: relative;
 }
 
 @keyframes spin {

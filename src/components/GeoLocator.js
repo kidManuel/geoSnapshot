@@ -20,11 +20,11 @@ const GeoLocator = ({ google, items }) => {
       zoom={4}
       // style={mapStyles}
       initialCenter={{ lat: 47.444, lng: -122.176 }}
+      className="geoLocator"
     >
       {
         items.map((item) => prepMarker(item))
       }
-
     </Map>
   );
 };
