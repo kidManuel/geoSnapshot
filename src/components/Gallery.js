@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import NoImages from './NoImages';
-import ImageThumbnail from './ImageThumbnail';
+import { NoImages, ImageThumbnail } from './';
 
 const Gallery = ({ data }) => {
   const prepImage = (image) => {

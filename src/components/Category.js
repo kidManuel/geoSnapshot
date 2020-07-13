@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Loader from './Loader';
-import Gallery from './Gallery';
+
+import { Loader, Gallery } from './';
 
 class Category extends Component {
   componentDidMount() {

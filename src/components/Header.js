@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Form from './Form';
-import Navigation from './Navigation';
+import { Form, Navigation } from './';
 
 const Header = ({ history, handleSubmit }) => {
   return (

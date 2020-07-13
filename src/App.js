@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Header from './components/Header';
-import Category from './components/Category';
-import NotFound from './components/NotFound';
-import Welcome from './components/Welcome';
-import GeoLocator from './components/GeoLocator';
+import {
+  Header,
+  Category,
+  NotFound,
+  Welcome,
+  GeoLocator
+} from './components';
 
 import { getPhotoApiUrl } from './util/apiUtil';
 
