@@ -2,28 +2,35 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Form = ({ handleSubmit, history }) => {
-  const [searchEntry, setSearchEntry] = useState('');
+  const [currentValue, setCurrentValue] = useState('');
+
   // update search text state
-  const updateSearchInput = e => {
-    setSearchEntry(e.target.value);
+  const updateSearchInputValue = e => {
+    setCurrentValue(e.target.value);
   };
+
+  const formSubmit = (event) => {
+    handleSubmit(currentValue, history, event);
+    setCurrentValue('');
+  };
+
   return (
     <form
       className="search-form"
-      onSubmit={event => handleSubmit(searchEntry, history, event)}
+      onSubmit={event => formSubmit(event)}
     >
       <input
         type="text"
         name="search"
         placeholder="Search..."
-        onChange={updateSearchInput}
-        value={searchEntry}
+        onChange={updateSearchInputValue}
+        value={currentValue}
         className='searchInput'
       />
       <button
         type="submit"
-        className={`search-button ${searchEntry.trim() ? 'active' : null}`}
-        disabled={!searchEntry.trim()}
+        className={`search-button ${currentValue.trim() ? 'active' : null}`}
+        disabled={!currentValue.trim()}
       >
         <svg className="searchIcon" height="32" width="32">
           <path

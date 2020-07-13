@@ -30,11 +30,11 @@ class App extends Component {
   handleSubmit(searchInput, history, event) {
     if (event) {
       event.preventDefault();
-      event.currentTarget.reset();
     }
 
     this.setState({
-      loading: true
+      loading: true,
+      currentSearch: searchInput
     }, () => {
       const url = `/${searchInput}`;
       history.push(url);
