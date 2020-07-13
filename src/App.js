@@ -31,7 +31,6 @@ class App extends Component {
     if (event) {
       event.preventDefault();
       event.currentTarget.reset();
-      console.log(event);
     }
 
     this.setState({
