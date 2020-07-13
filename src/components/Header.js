@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Form from './Form';
-import Navigation from './Navigation';
+import { Form, Navigation } from './';
 
 const Header = ({ history, handleSubmit }) => {
   return (
     <div>
       <h1>SnapShot</h1>
       <Form history={history} handleSubmit={handleSubmit} />
-      <Navigation />
+      <Navigation handleSubmit={handleSubmit} history={history} />
     </div>
   );
 };

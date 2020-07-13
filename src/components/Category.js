@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Loader from './Loader';
-import Gallery from './Gallery';
+
+import { Loader, Gallery } from './';
 
 class Category extends Component {
   componentDidMount() {
@@ -22,7 +22,7 @@ class Category extends Component {
   render() {
     const { searchTerm, loading, images } = this.props;
     return (
-      <div>
+      <div className='category'>
         <h2>{searchTerm} Pictures</h2>
         {
           loading

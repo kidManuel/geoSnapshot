@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Header from './components/Header';
-import Category from './components/Category';
-import NotFound from './components/NotFound';
-import Welcome from './components/Welcome';
-import GeoLocator from './components/GeoLocator';
+import {
+  Header,
+  Category,
+  NotFound,
+  Welcome,
+  GeoLocator
+} from './components';
 
 import { getPhotoApiUrl } from './util/apiUtil';
 
@@ -25,9 +27,12 @@ class App extends Component {
   }
 
   // Prevent page reload, clear input, set URL and push history on submit
-  handleSubmit(e, history, searchInput) {
-    e.preventDefault();
-    e.currentTarget.reset();
+  handleSubmit(searchInput, history, event) {
+    if (event) {
+      event.preventDefault();
+      event.currentTarget.reset();
+    }
+
     this.setState({
       loading: true
     }, () => {
@@ -59,16 +64,16 @@ class App extends Component {
     const { images, loading } = this.state;
 
     return (
-      <main className="snapShotContainer">
-        <BrowserRouter>
-          <Route
-            render={props => (
-              <Header
-                handleSubmit={this.handleSubmit}
-                history={props.history}
-              />
-            )}
-          />
+      <BrowserRouter>
+        <Route
+          render={props => (
+            <Header
+              handleSubmit={this.handleSubmit}
+              history={props.history}
+            />
+          )}
+        />
+        <main className="snapShotContainer">
           <Switch>
             <Route
               exact
@@ -88,11 +93,11 @@ class App extends Component {
             />
             <Route component={NotFound} />
           </Switch>
-        </BrowserRouter>
-        <GeoLocator
-          items={images}
-        />
-      </main>
+          <GeoLocator
+            items={images}
+          />
+        </main>
+      </BrowserRouter>
     );
   }
 }

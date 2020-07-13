@@ -1,17 +1,50 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const Navigation = () => {
+const Navigation = ({ handleSubmit, history }) => {
   return (
     <nav className="main-nav">
       <ul className="navSuggestionLink">
-        <li className="navSuggestion"><NavLink className="navLink" to="/mountain">Mountain</NavLink></li>
-        <li className="navSuggestion"><NavLink className="navLink" to="/beach">Beaches</NavLink></li>
-        <li className="navSuggestion"><NavLink className="navLink" to="/bird">Birds</NavLink></li>
-        <li className="navSuggestion"><NavLink className="navLink" to="/food">Food</NavLink></li>
+        <li className="navSuggestion">
+          <div
+            className="navLink"
+            onClick={
+              () => handleSubmit('Mountain', history)
+            }>Mountain
+          </div>
+        </li>
+        <li className="navSuggestion">
+          <div
+            className="navLink"
+            onClick={
+              () => handleSubmit('Beaches', history)
+            }>Beaches
+          </div>
+        </li>
+        <li className="navSuggestion">
+          <div
+            className="navLink"
+            onClick={
+              () => handleSubmit('Birds', history)
+            }>Birds
+          </div>
+        </li>
+        <li className="navSuggestion">
+          <div
+            className="navLink"
+            onClick={
+              () => handleSubmit('Food', history)
+            }>Food
+          </div>
+        </li>
       </ul>
     </nav>
   );
 };
 
 export default Navigation;
+
+Navigation.propTypes = {
+  handleSubmit: PropTypes.func,
+  history: PropTypes.object
+};
