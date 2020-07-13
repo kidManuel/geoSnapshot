@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import NoImages from './NoImages';
+import ImageThumbnail from './ImageThumbnail';
 
 const Gallery = ({ data }) => {
   const prepImage = (image) => {
@@ -11,7 +12,7 @@ const Gallery = ({ data }) => {
     const secret = image.secret;
     const title = image.title;
     const url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
-    return <img className='imageElement' src={url} alt={title} />;
+    return <ImageThumbnail className='imageElement' src={url} title={title} />;
   };
 
   // map variables to each item in fetched image array and return image component
