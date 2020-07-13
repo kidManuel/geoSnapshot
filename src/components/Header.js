@@ -8,7 +8,7 @@ const Header = ({ history, handleSubmit }) => {
     <div>
       <h1>SnapShot</h1>
       <Form history={history} handleSubmit={handleSubmit} />
-      <Navigation />
+      <Navigation handleSubmit={handleSubmit} history={history} />
     </div>
   );
 };

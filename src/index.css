@@ -76,6 +76,7 @@ a {
   border-radius: 3px;
   padding: 5px;
   color: #fff;
+  cursor: pointer;
 }
 
 .navSuggestion .active,

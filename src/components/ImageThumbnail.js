@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ImageThumbnail = ({ src, title }) => {
   return (
@@ -20,3 +21,8 @@ const ImageThumbnail = ({ src, title }) => {
 };
 
 export default ImageThumbnail;
+
+ImageThumbnail.propTypes = {
+  src: PropTypes.string,
+  title: PropTypes.string
+};

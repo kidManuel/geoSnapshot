@@ -27,9 +27,13 @@ class App extends Component {
   }
 
   // Prevent page reload, clear input, set URL and push history on submit
-  handleSubmit(e, history, searchInput) {
-    e.preventDefault();
-    e.currentTarget.reset();
+  handleSubmit(searchInput, history, event) {
+    if (event) {
+      event.preventDefault();
+      event.currentTarget.reset();
+      console.log(event);
+    }
+
     this.setState({
       loading: true
     }, () => {
