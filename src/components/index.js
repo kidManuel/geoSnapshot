@@ -5,7 +5,7 @@ import GeoLocator from './GeoLocator';
 import Header from './Header';
 import ImageThumbnail from './ImageThumbnail';
 import Loader from './Loader';
-import Navigation from './Navigation';
+import SuggestedNavigation from './SuggestedNavigation';
 import NoImages from './NoImages';
 import NotFound from './NotFound';
 import Welcome from './Welcome';
@@ -18,7 +18,7 @@ export {
   Header,
   ImageThumbnail,
   Loader,
-  Navigation,
+  SuggestedNavigation,
   NoImages,
   NotFound,
   Welcome

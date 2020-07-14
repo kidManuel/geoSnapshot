@@ -19,7 +19,7 @@ const GeoLocator = ({ google, items }) => {
       google={google}
       zoom={4}
       // style={mapStyles}
-      initialCenter={{ lat: 47.444, lng: -122.176 }}
+      initialCenter={{ lat: 48.701, lng: 16.087 }}
       className="geoLocator"
     >
       {

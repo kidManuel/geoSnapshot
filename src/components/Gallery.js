@@ -11,7 +11,7 @@ const Gallery = ({ data }) => {
     const secret = image.secret;
     const title = image.title;
     const url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
-    return <ImageThumbnail className='imageElement' src={url} title={title} />;
+    return <ImageThumbnail key={id} lassName='imageElement' src={url} title={title} />;
   };
 
   // map variables to each item in fetched image array and return image component
@@ -19,15 +19,7 @@ const Gallery = ({ data }) => {
     <div className="imageGallery">
       {
         data.length
-          ? <ul className="imageList"> {
-            data.map(image =>
-              <li key={image.id} className="singleImage">
-                {
-                  prepImage(image)
-                }
-              </li>)
-          }
-          </ul>
+          ? data.map(image => prepImage(image))
           : <NoImages />
         // return 'not found' component if no images fetched
       }

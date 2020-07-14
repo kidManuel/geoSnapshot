@@ -84,17 +84,14 @@ a {
   background-color: #051c33;
 }
 
-.imageList {
+.imageGallery {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 70vh;
   -ms-align-items: flex-start;
   align-items: center;
-}
-
-.singleImage {
-  overflow: hidden;
-  margin-bottom: 15px;
+  overflow-x: scroll;
 }
 
 .imageElement {
@@ -132,9 +129,12 @@ a {
 
 .imageThumbnailWrapper {
   overflow: hidden;
+  margin-bottom: 15px;
+  width: 13%;
+  margin: 3px;
+  border-radius: 5px;
   position: relative;
-  width: 220px;
-  max-height: 165px;
+  line-height: 0;
 }
 
 .imageName {
@@ -153,6 +153,8 @@ a {
   transition: all 0.4s;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .imageThumbnailWrapper:hover .imageName {
