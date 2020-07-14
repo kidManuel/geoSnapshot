@@ -33,7 +33,8 @@ class App extends Component {
     }
 
     this.setState({
-      loading: true
+      loading: true,
+      currentSearch: searchInput
     }, () => {
       const url = `/${searchInput}`;
       history.push(url);
