@@ -17,12 +17,14 @@ class App extends Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.fetchPhotos = this.fetchPhotos.bind(this);
+    this.toggleMap = this.toggleMap.bind(this);
 
     this.state = {
       currentSearch: '',
       images: [],
       loading: false,
-      markers: []
+      markers: [],
+      mapActive: true
     };
   }
 
@@ -60,8 +62,15 @@ class App extends Component {
       });
   };
 
+  toggleMap() {
+    const { mapActive } = this.state;
+    this.setState({
+      mapActive: !mapActive
+    });
+  }
+
   render() {
-    const { images, loading } = this.state;
+    const { images, loading, mapActive } = this.state;
 
     return (
       <BrowserRouter>
@@ -73,15 +82,15 @@ class App extends Component {
             />
           )}
         />
-        <main className="snapShotContainer">
+        <main className={`snapShotContainer ${mapActive ? 'active' : 'inactive'}`}>
           <Switch>
             <Route
               exact
-              path="/"
+              path='/'
               component={Welcome}
             />
             <Route
-              path="/:searchInput"
+              path='/:searchInput'
               render={props => (
                 <Category
                   searchTerm={props.match.params.searchInput}
@@ -93,10 +102,12 @@ class App extends Component {
             />
             <Route component={NotFound} />
           </Switch>
+          <GeoLocator
+            items={images}
+            isOpen={mapActive}
+            toggleMap={this.toggleMap}
+          />
         </main>
-        <GeoLocator
-          items={images}
-        />
       </BrowserRouter>
     );
   }

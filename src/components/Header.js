@@ -5,11 +5,11 @@ import { Form, SuggestedNavigation } from './';
 
 const Header = ({ history, handleSubmit }) => {
   return (
-    <div className="pageHeader">
-      <div className="pageLogo">
-        <span id="geo">geo</span><span id="snapshot">SNAPSHOT</span>
+    <div className='pageHeader'>
+      <div className='pageLogo'>
+        <span id='geo'>geo</span><span id='snapshot'>SNAPSHOT</span>
       </div>
-      <div className="headerMain">
+      <div className='headerMain'>
         <Form history={history} handleSubmit={handleSubmit} />
         <SuggestedNavigation handleSubmit={handleSubmit} history={history} />
       </div>

@@ -23,7 +23,7 @@ class Category extends Component {
     const { searchTerm, loading, images } = this.props;
     return (
       <div className='category'>
-        <h2>{searchTerm} Pictures</h2>
+        <h2 className='categoryTitle'>Showing pictures of: <span className='searchQueryInCategory'>{searchTerm}</span></h2>
         {
           loading
             ? <Loader />

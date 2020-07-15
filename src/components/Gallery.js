@@ -16,7 +16,7 @@ const Gallery = ({ data }) => {
 
   // map variables to each item in fetched image array and return image component
   return (
-    <div className="imageGallery">
+    <div className='imageGallery styledScrollbar'>
       {
         data.length
           ? data.map(image => prepImage(image))

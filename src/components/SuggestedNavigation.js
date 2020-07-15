@@ -13,14 +13,14 @@ const SuggestedNavigation = ({ handleSubmit, history }) => {
   });
 
   return (
-    <nav className="navSuggestionWrapper">
-      <div className="navSuggestionLabel">Try searching for...</div>
-      <ul className="navSuggestionLinkList">
+    <nav className='navSuggestionWrapper'>
+      <div className='navSuggestionLabel'>Try searching for...</div>
+      <ul className='navSuggestionLinkList'>
         {
           suggestions.map((singleSuggestion) => (
-            <li className="navSuggestion" key={singleSuggestion}>
+            <li className='navSuggestion' key={singleSuggestion}>
               <div
-                className="navLink"
+                className='navLink'
                 onClick={
                   () => handleSubmit(singleSuggestion, history)
                 }>{singleSuggestion}

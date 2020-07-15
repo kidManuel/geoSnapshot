@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ImageThumbnail = ({ src, title }) => {
   return (
-    <div className="imageThumbnailWrapper">
+    <div className='imageThumbnailWrapper'>
       <img
         className='imageElement'
         src={src}
@@ -11,7 +11,7 @@ const ImageThumbnail = ({ src, title }) => {
       />
       {
         title
-          ? <div className="imageName">
+          ? <div className='imageName'>
             {title}
           </div>
           : null
