@@ -99,6 +99,17 @@ body {
   border-radius: 5px;
   position: relative;
   line-height: 0;
+  border: solid 2px rgba(255, 255, 255, 0);
+  transition: border 0.3s;
+  cursor: pointer;
+}
+
+.imageThumbnailWrapper:hover {
+  border: solid 2px rgba(255, 255, 255, .8);
+}
+
+.imageThumbnailWrapper.active {
+  border: solid 3px #03DAC5;
 }
 
 .imageName {

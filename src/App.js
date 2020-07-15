@@ -18,13 +18,15 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.fetchPhotos = this.fetchPhotos.bind(this);
     this.toggleMap = this.toggleMap.bind(this);
+    this.toggleImage = this.toggleImage.bind(this);
 
     this.state = {
       currentSearch: '',
       images: [],
       loading: false,
       markers: [],
-      mapActive: true
+      isMapActive: true,
+      selectedImages: []
     };
   }
 
@@ -63,14 +65,29 @@ class App extends Component {
   };
 
   toggleMap() {
-    const { mapActive } = this.state;
+    const { isMapActive } = this.state;
     this.setState({
-      mapActive: !mapActive
+      isMapActive: !isMapActive
+    });
+  }
+
+  toggleImage(image) {
+    const { selectedImages } = this.state;
+    const newSelectedImages = [...selectedImages];
+    const inArrayPosition = newSelectedImages.findIndex((element) => element.id === image.id);
+    if (inArrayPosition > -1) {
+      newSelectedImages.splice(inArrayPosition, 1);
+    } else {
+      newSelectedImages.push(image);
+    }
+
+    this.setState({
+      selectedImages: newSelectedImages
     });
   }
 
   render() {
-    const { images, loading, mapActive } = this.state;
+    const { images, loading, isMapActive, selectedImages } = this.state;
 
     return (
       <BrowserRouter>
@@ -82,7 +99,7 @@ class App extends Component {
             />
           )}
         />
-        <main className={`snapShotContainer ${mapActive ? 'active' : 'inactive'}`}>
+        <main className={`snapShotContainer ${isMapActive ? 'active' : 'inactive'}`}>
           <Switch>
             <Route
               exact
@@ -95,8 +112,10 @@ class App extends Component {
                 <Category
                   searchTerm={props.match.params.searchInput}
                   images={images}
+                  selectedImages={selectedImages}
                   loading={loading}
                   fetchCallback={this.fetchPhotos}
+                  toggleImageCallback={this.toggleImage}
                 />
               )}
             />
@@ -104,7 +123,7 @@ class App extends Component {
           </Switch>
           <GeoLocator
             items={images}
-            isOpen={mapActive}
+            isOpen={isMapActive}
             toggleMap={this.toggleMap}
           />
         </main>

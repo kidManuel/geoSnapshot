@@ -1,12 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ImageThumbnail = ({ src, title }) => {
+const ImageThumbnail = ({ data, toggleCallback, isSelected }) => {
+  const {
+    farm,
+    server,
+    id,
+    secret,
+    title
+  } = data;
+
+  const getSrcUrl = () => {
+    return `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
+  };
+
   return (
-    <div className='imageThumbnailWrapper'>
+    <div
+      className={`imageThumbnailWrapper ${isSelected ? 'active' : 'inactive'}`}
+      onClick={() => toggleCallback(data)}
+    >
       <img
         className='imageElement'
-        src={src}
+        src={getSrcUrl()}
         alt={title}
       />
       {
@@ -23,6 +38,13 @@ const ImageThumbnail = ({ src, title }) => {
 export default ImageThumbnail;
 
 ImageThumbnail.propTypes = {
-  src: PropTypes.string,
-  title: PropTypes.string
+  data: PropTypes.shape({
+    farm: PropTypes.number,
+    server: PropTypes.number,
+    id: PropTypes.number,
+    secret: PropTypes.number,
+    title: PropTypes.string
+  }),
+  toggleCallback: PropTypes.func,
+  isSelected: PropTypes.bool
 };

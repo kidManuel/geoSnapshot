@@ -20,14 +20,18 @@ class Category extends Component {
   };
 
   render() {
-    const { searchTerm, loading, images } = this.props;
+    const { searchTerm, loading, images, toggleImageCallback, selectedImages } = this.props;
     return (
       <div className='category'>
         <h2 className='categoryTitle'>Showing pictures of: <span className='searchQueryInCategory'>{searchTerm}</span></h2>
         {
           loading
             ? <Loader />
-            : <Gallery data={images} />
+            : <Gallery
+              data={images}
+              selectedImages={selectedImages}
+              toggleImageCallback={toggleImageCallback}
+            />
         }
       </div>
     );
@@ -39,6 +43,8 @@ export default Category;
 Category.propTypes = {
   searchTerm: PropTypes.string,
   images: PropTypes.arrayOf(PropTypes.object),
+  selectedImages: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool,
-  fetchCallback: PropTypes.func
+  fetchCallback: PropTypes.func,
+  toggleImageCallback: PropTypes.func
 };

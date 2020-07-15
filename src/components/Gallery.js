@@ -3,23 +3,22 @@ import PropTypes from 'prop-types';
 
 import { NoImages, ImageThumbnail } from './';
 
-const Gallery = ({ data }) => {
-  const prepImage = (image) => {
-    const farm = image.farm;
-    const server = image.server;
-    const id = image.id;
-    const secret = image.secret;
-    const title = image.title;
-    const url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
-    return <ImageThumbnail key={id} lassName='imageElement' src={url} title={title} />;
+const Gallery = ({ data, toggleImageCallback, selectedImages }) => {
+  const isImageSelected = (image) => {
+    return !!selectedImages.find((element) => element.id === image.id);
   };
 
-  // map variables to each item in fetched image array and return image component
   return (
     <div className='imageGallery styledScrollbar'>
       {
         data.length
-          ? data.map(image => prepImage(image))
+          ? data.map(image => (
+            <ImageThumbnail
+              key={image.id}
+              data={image}
+              toggleCallback={toggleImageCallback}
+              isSelected={isImageSelected(image)}
+            />))
           : <NoImages />
         // return 'not found' component if no images fetched
       }
@@ -32,5 +31,9 @@ export default Gallery;
 Gallery.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.object
-  )
+  ),
+  selectedImages: PropTypes.arrayOf(
+    PropTypes.object
+  ),
+  toggleImageCallback: PropTypes.func
 };
