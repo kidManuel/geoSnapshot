@@ -14,6 +14,13 @@ const ImageThumbnail = ({ data, toggleCallback, isSelected }) => {
     return `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
   };
 
+  const prepLabelString = () => {
+    if (title.length > 50) {
+      return `${title.slice(0, 45)}...`
+    }
+    return title;
+  }
+
   return (
     <div
       className={`imageThumbnailWrapper ${isSelected ? 'active' : 'inactive'}`}
@@ -27,7 +34,7 @@ const ImageThumbnail = ({ data, toggleCallback, isSelected }) => {
       {
         title
           ? <div className='imageName'>
-            {title}
+            {prepLabelString()}
           </div>
           : null
       }
@@ -40,9 +47,9 @@ export default ImageThumbnail;
 ImageThumbnail.propTypes = {
   data: PropTypes.shape({
     farm: PropTypes.number,
-    server: PropTypes.number,
-    id: PropTypes.number,
-    secret: PropTypes.number,
+    server: PropTypes.string,
+    id: PropTypes.string,
+    secret: PropTypes.string,
     title: PropTypes.string
   }),
   toggleCallback: PropTypes.func,

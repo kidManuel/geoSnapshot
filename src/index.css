@@ -241,7 +241,7 @@ body {
 /* https://github.com/fullstackreact/google-maps-react/blob/master/src/GoogleApiComponent.js      */
 /* Line 129                                                                                       */
 
-.snapShotContainer>div:nth-child(2) {
+.snapShotContainer>div:nth-child(3) {
   height: 88vh;
   width: 90vw;
   right: 0;
@@ -286,6 +286,29 @@ body {
   transform: rotate(-180deg);
 }
 
-.snapShotContainer.active>div:nth-child(2) {
+.snapShotContainer.active>div:nth-child(3) {
   right: -90vw;
+}
+
+.displayOptions {
+  display: flex;
+}
+
+.categoryInfo {
+  display: flex;
+  width: 80vw;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.massSelector {
+  color: white;
+  margin-left: 25px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.massSelector:hover {
+  text-decoration: underline;
 }

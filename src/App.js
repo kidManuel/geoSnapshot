@@ -19,6 +19,8 @@ class App extends Component {
     this.fetchPhotos = this.fetchPhotos.bind(this);
     this.toggleMap = this.toggleMap.bind(this);
     this.toggleImage = this.toggleImage.bind(this);
+    this.pickAll = this.pickAll.bind(this);
+    this.pickNone = this.pickNone.bind(this);
 
     this.state = {
       currentSearch: '',
@@ -54,7 +56,8 @@ class App extends Component {
       this.setState({
         images: memoizedData,
         loading: false,
-        currentSearch: query
+        currentSearch: query,
+        selectedImages: []
       });
     } else {
       axios
@@ -102,8 +105,22 @@ class App extends Component {
     });
   }
 
+  pickAll() {
+    const { images } = this.state;
+    const newSelectedImages = [...images];
+    this.setState({
+      selectedImages: newSelectedImages
+    });
+  }
+
+  pickNone() {
+    this.setState({
+      selectedImages: []
+    });
+  }
+
   render() {
-    const { images, loading, isMapActive, selectedImages } = this.state;
+    const { images, loading, isMapActive, selectedImages, currentSearch } = this.state;
 
     return (
       <BrowserRouter>
@@ -116,6 +133,25 @@ class App extends Component {
           )}
         />
         <main className={`snapShotContainer ${isMapActive ? 'active' : 'inactive'}`}>
+
+          <div className="categoryInfo">
+            <h2 className='categoryTitle'>Showing pictures of: <span className='searchQueryInCategory'>{currentSearch}</span></h2>
+            <div className="displayOptions">
+              <h3
+                className="massSelector"
+                onClick={this.pickAll}
+              >
+                Pick All
+              </h3>
+              <h3
+                className="massSelector"
+                onClick={this.pickNone}
+              >
+                Pick None
+              </h3>
+            </div>
+
+          </div>
           <Switch>
             <Route
               exact
@@ -138,7 +174,7 @@ class App extends Component {
             <Route component={NotFound} />
           </Switch>
           <GeoLocator
-            items={images}
+            items={selectedImages}
             isOpen={isMapActive}
             toggleMap={this.toggleMap}
           />

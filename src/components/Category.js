@@ -20,10 +20,9 @@ class Category extends Component {
   };
 
   render() {
-    const { searchTerm, loading, images, toggleImageCallback, selectedImages } = this.props;
+    const { loading, images, toggleImageCallback, selectedImages } = this.props;
     return (
       <div className='category'>
-        <h2 className='categoryTitle'>Showing pictures of: <span className='searchQueryInCategory'>{searchTerm}</span></h2>
         {
           loading
             ? <Loader />
