@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { pickRandomSuggestions } from '../util/suggestionsList';
 
 const SuggestedNavigation = ({ handleSubmit, history }) => {
-  const suggestions = pickRandomSuggestions();
+  const [suggestions, setSuggestions] = useState(pickRandomSuggestions());
+  useEffect(() => {
+    const unlisten = history.listen(() => {
+      setSuggestions(pickRandomSuggestions());
+    });
+    return unlisten;
+  });
+
   return (
     <nav className="main-nav">
       <ul className="navSuggestionLink">
