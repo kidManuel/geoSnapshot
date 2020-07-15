@@ -271,6 +271,8 @@ body {
   justify-content: center;
   transition: background 0.4s;
   cursor: pointer;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .toggleButton:hover {

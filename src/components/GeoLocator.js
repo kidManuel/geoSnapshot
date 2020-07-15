@@ -9,7 +9,6 @@ const GeoLocator = ({ google, items, toggleMap }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
 
   const setThumbnail = (item) => {
-    console.log('HOVER IN');
     setHoveredItem(item);
   };
 
@@ -23,11 +22,16 @@ const GeoLocator = ({ google, items, toggleMap }) => {
     />;
   };
 
+  const toggleExpand = () => {
+    setHoveredItem(null);
+    toggleMap();
+  };
+
   return (
     <div className='geoWrapper'>
       <div
         className='toggleButton'
-        onClick={toggleMap}
+        onClick={toggleExpand}
       >
         <svg height='32' width='32'>
           <path className='iconToggle' d='M3.58,13.99l15.83,10.7c1.19,0.81,2.81-0.05,2.81-1.49V1.8c0-1.44-1.61-2.3-2.81-1.49L3.58,11.01
