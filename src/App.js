@@ -26,7 +26,8 @@ class App extends Component {
       loading: false,
       markers: [],
       isMapActive: true,
-      selectedImages: []
+      selectedImages: [],
+      memo: {}
     };
   }
 
@@ -46,22 +47,37 @@ class App extends Component {
   };
 
   fetchPhotos(query) {
-    axios
-      .get(getPhotoApiUrl(query))
-      .then(response => {
-        const photoData = response.data.photos.photo;
-        this.setState({
-          images: photoData,
-          loading: false,
-          currentSearch: query
-        });
-      })
-      .catch(error => {
-        console.error(
-          'Encountered an error with fetching and parsing data',
-          error
-        );
+    const { memo } = this.state;
+    const memoizedData = memo[query];
+
+    if (memoizedData) {
+      this.setState({
+        images: memoizedData,
+        loading: false,
+        currentSearch: query
       });
+    } else {
+      axios
+        .get(getPhotoApiUrl(query))
+        .then(response => {
+          const photoData = response.data.photos.photo;
+          const newMemoEntry = { [query]: photoData };
+          const newMemoState = Object.assign({ ...memo }, newMemoEntry);
+
+          this.setState({
+            images: photoData,
+            loading: false,
+            currentSearch: query,
+            memo: newMemoState
+          });
+        })
+        .catch(error => {
+          console.error(
+            'Encountered an error with fetching and parsing data',
+            error
+          );
+        });
+    }
   };
 
   toggleMap() {
