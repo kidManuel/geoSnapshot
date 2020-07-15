@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const Form = ({ handleSubmit, history }) => {
   const [currentValue, setCurrentValue] = useState('');
+  useEffect(() => {
+    const unlisten = history.listen(() => {
+      setCurrentValue('');
+    });
+
+    return unlisten;
+  }, [history]);
 
   // update search text state
   const updateSearchInputValue = e => {
@@ -11,7 +18,6 @@ const Form = ({ handleSubmit, history }) => {
 
   const formSubmit = (event) => {
     handleSubmit(currentValue, history, event);
-    setCurrentValue('');
   };
 
   return (
