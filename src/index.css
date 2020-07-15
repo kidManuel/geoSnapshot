@@ -1,35 +1,8 @@
 body {
   text-align: center;
-  font-family: "Josefin Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Inconsolata', monospace;
   color: #3f4850;
-}
-
-h2 {
-  font-size: 2em;
-  margin: 52px 0 40px;
-  text-transform: capitalize;
-  color: #051c33;
-}
-
-h1 {
-  font-family: "Lobster", "Josefin Sans", Helvetica, Arial, sans-serif;
-  font-size: 4em;
-  color: #051c33;
-}
-
-ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-.search-form {
-  max-width: 460px;
-  display: flex;
-  margin: 0 auto 32px;
+  background-color: #1f1f1f;
 }
 
 .search-button {
@@ -52,36 +25,6 @@ a {
 
 .search-button.active .searchIcon {
   transform: scale(1.2);
-}
-
-.searchInput {
-  font-size: 1em;
-  width: 100%;
-  background-color: #edeff0;
-  padding: 10px 15px;
-  border: 3px solid #d7dbdf;
-  border-right: none;
-  border-radius: 0.35em 0 0 0.35em;
-  outline: none;
-}
-
-.navSuggestion {
-  width: 100%;
-  margin-bottom: 1em;
-}
-
-.navLink {
-  display: block;
-  background: #051c33;
-  border-radius: 3px;
-  padding: 5px;
-  color: #fff;
-  cursor: pointer;
-}
-
-.navSuggestion .active,
-.navLink:hover {
-  background-color: #051c33;
 }
 
 .imageGallery {
@@ -175,33 +118,74 @@ a {
   padding-top: 5%;
 }
 
-@media only screen and (max-width: 767px) {
-  body {
-    padding-top: 2em;
-  }
+.pageHeader {
+  padding: 20px;
+  height: 8vh;
+  background-color: #03DAC5;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
 
-  .imageGallery li {
-    margin: auto;
-  }
 }
 
-@media only screen and (min-width: 768px) {
-  body {
-    padding-top: 4em;
-  }
+.pageLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 50px;
+}
 
-  .container {
-    max-width: 960px;
-    margin: auto;
-  }
+#geo {
+  font-size: 20px;
+}
 
-  .main-nav ul {
-    display: flex;
-    justify-content: center;
-  }
+#snapshot {
+  font-size: 20px;
+  font-weight: 900;
+}
 
-  .main-nav li {
-    margin: 10px;
-    width: 100px;
-  }
+.navSuggestionWrapper {
+  margin-top: 15px;
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navSuggestionLinkList {
+  display: flex;
+}
+
+.searchInput {
+  font-size: 16px;
+  background-color: #edeff0;
+  padding: 5px 15px;
+  border: 0;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  width: 100%;
+}
+
+.search-form {
+  display: flex;
+  flex-grow: 1;
+}
+
+.headerMain {
+  flex-grow: 1;
+}
+
+.navLink {
+  padding: 5px;
+  cursor: pointer;
+  font-weight: 700;
+  margin: 0 5px;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}
+
+.navSuggestion .active {
+  background-color: #051c33;
 }

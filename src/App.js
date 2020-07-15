@@ -93,10 +93,10 @@ class App extends Component {
             />
             <Route component={NotFound} />
           </Switch>
-          <GeoLocator
-            items={images}
-          />
         </main>
+        <GeoLocator
+          items={images}
+        />
       </BrowserRouter>
     );
   }
