@@ -71,7 +71,8 @@ class App extends Component {
             images: photoData,
             loading: false,
             currentSearch: query,
-            memo: newMemoState
+            memo: newMemoState,
+            selectedImages: []
           });
         })
         .catch(error => {
@@ -133,8 +134,7 @@ class App extends Component {
           )}
         />
         <main className={`snapShotContainer ${isMapActive ? 'active' : 'inactive'}`}>
-
-          <div className="categoryInfo">
+          <div className={`categoryInfo ${currentSearch.length ? 'active' : 'inactive'}`}>
             <h2 className='categoryTitle'>Showing pictures of: <span className='searchQueryInCategory'>{currentSearch}</span></h2>
             <div className="displayOptions">
               <h3
@@ -147,10 +147,10 @@ class App extends Component {
                 className="massSelector"
                 onClick={this.pickNone}
               >
-                Pick None
+                Clear Selection
               </h3>
             </div>
-
+            <div className={`selectionTooltip ${selectedImages.length ? 'active' : 'inactive'}`}>See your selections in the map! → </div>
           </div>
           <Switch>
             <Route

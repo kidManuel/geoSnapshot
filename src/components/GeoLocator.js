@@ -1,16 +1,25 @@
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { googleMapsApiKey } from '../util/const';
+import ImageThumbnail from './ImageThumbnail';
 
-const GeoLocator = ({ google, items, isOpen, toggleMap }) => {
+const GeoLocator = ({ google, items, toggleMap }) => {
+  const [hoveredItem, setHoveredItem] = useState(null);
+
+  const setThumbnail = (item) => {
+    console.log('HOVER IN');
+    setHoveredItem(item);
+  };
+
   const prepMarker = item => {
     const { latitude, longitude, title, id } = item;
     return <Marker
       title={title}
       position={{ lat: latitude, lng: longitude }}
       key={id}
+      onClick={() => { setThumbnail(item); }}
     />;
   };
 
@@ -27,8 +36,7 @@ const GeoLocator = ({ google, items, isOpen, toggleMap }) => {
       </div>
       <Map
         google={google}
-        zoom={4}
-        // style={mapStyles}
+        zoom={2}
         initialCenter={{ lat: 48.701, lng: 16.087 }}
         className='geoLocator'
       >
@@ -36,7 +44,15 @@ const GeoLocator = ({ google, items, isOpen, toggleMap }) => {
           items.map((item) => prepMarker(item))
         }
       </Map>
-    </div >
+      {
+        hoveredItem
+          ? <ImageThumbnail
+            data={hoveredItem}
+            isInGrid={false}
+          />
+          : null
+      }
+    </div>
   );
 };
 

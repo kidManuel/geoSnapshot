@@ -6,7 +6,10 @@ import { Form, SuggestedNavigation } from './';
 const Header = ({ history, handleSubmit }) => {
   return (
     <div className='pageHeader'>
-      <div className='pageLogo'>
+      <div
+        className='pageLogo'
+        onClick={() => handleSubmit('', history)}
+      >
         <span id='geo'>geo</span><span id='snapshot'>SNAPSHOT</span>
       </div>
       <div className='headerMain'>

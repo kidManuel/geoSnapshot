@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ImageThumbnail = ({ data, toggleCallback, isSelected }) => {
+const ImageThumbnail = ({ data, toggleCallback = () => { }, isSelected, isInGrid }) => {
   const {
     farm,
     server,
@@ -16,14 +16,14 @@ const ImageThumbnail = ({ data, toggleCallback, isSelected }) => {
 
   const prepLabelString = () => {
     if (title.length > 50) {
-      return `${title.slice(0, 45)}...`
+      return `${title.slice(0, 45)}...`;
     }
     return title;
-  }
+  };
 
   return (
     <div
-      className={`imageThumbnailWrapper ${isSelected ? 'active' : 'inactive'}`}
+      className={`imageThumbnailWrapper ${isSelected ? 'active' : 'inactive'} ${isInGrid ? 'inGrid' : 'static'}`}
       onClick={() => toggleCallback(data)}
     >
       <img
@@ -53,5 +53,6 @@ ImageThumbnail.propTypes = {
     title: PropTypes.string
   }),
   toggleCallback: PropTypes.func,
-  isSelected: PropTypes.bool
+  isSelected: PropTypes.bool,
+  isInGrid: PropTypes.bool
 };

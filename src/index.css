@@ -32,20 +32,18 @@ body {
   padding: 0px 15px;
   border-radius: 0 0.35em 0.35em 0;
   cursor: pointer;
-  background-color: #051c33;
+  background-color: #1f1f1f;
   transition: all 0.3s;
 }
 
-.search-button.active {
-  background-color: #1a65b1;
-}
-
 .searchIcon {
+  transform: scale(.7);
   transition: all 0.2s;
 }
 
-.search-button.active .searchIcon {
-  transform: scale(1.2);
+.search-button.active .searchIcon path {
+  transform: scale(1.1);
+  fill: #03DAC5;
 }
 
 .imageGallery {
@@ -94,7 +92,6 @@ body {
 .imageThumbnailWrapper {
   overflow: hidden;
   margin-bottom: 15px;
-  width: 13%;
   margin: 3px;
   border-radius: 5px;
   position: relative;
@@ -102,6 +99,7 @@ body {
   border: solid 2px rgba(255, 255, 255, 0);
   transition: border 0.3s;
   cursor: pointer;
+  width: 13%;
 }
 
 .imageThumbnailWrapper:hover {
@@ -114,17 +112,17 @@ body {
 
 .imageName {
   width: 100%;
-  background-color: #051c33;
+  background-color: #1f1f1f;
+  color: #03DAC5;
   position: absolute;
-  bottom: -100%;
+  bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
   padding: 5px 20px;
-  color: white;
   box-sizing: border-box;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   transition: all 0.4s;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -132,7 +130,11 @@ body {
   line-height: 16px;
 }
 
-.imageThumbnailWrapper:hover .imageName {
+.imageThumbnailWrapper.inGrid .imageName {
+  bottom: -100%;
+}
+
+.imageThumbnailWrapper.inGrid:hover .imageName {
   bottom: 0%;
 }
 
@@ -157,7 +159,6 @@ body {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-
 }
 
 .pageLogo {
@@ -165,16 +166,20 @@ body {
   flex-direction: column;
   align-items: flex-start;
   margin-right: 50px;
+  color: #1f1f1f;
+  cursor: pointer;
 }
 
 #geo {
   font-weight: 200;
   font-size: 20px;
+  text-decoration: none;
 }
 
 #snapshot {
   font-size: 20px;
   font-weight: 900;
+  text-decoration: none;
 }
 
 .navSuggestionWrapper {
@@ -300,6 +305,11 @@ body {
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
+  opacity: 1;
+}
+
+.categoryInfo.inactive {
+  opacity: 0;
 }
 
 .massSelector {
@@ -311,4 +321,33 @@ body {
 
 .massSelector:hover {
   text-decoration: underline;
+}
+
+.specialPage {
+  font-size: 60px;
+  font-weight: 900;
+  color: white;
+  line-height: 70px;
+}
+
+.welcomeGeo {
+  color: #03DAC5;
+}
+
+.geoWrapper .imageThumbnailWrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 20%;
+}
+
+.selectionTooltip {
+  font-size: 20px;
+  color: #03DAC5;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.selectionTooltip.active {
+  opacity: 1;
 }

@@ -18,6 +18,7 @@ const Gallery = ({ data, toggleImageCallback, selectedImages }) => {
               data={image}
               toggleCallback={toggleImageCallback}
               isSelected={isImageSelected(image)}
+              isInGrid={true}
             />))
           : <NoImages />
         // return 'not found' component if no images fetched
