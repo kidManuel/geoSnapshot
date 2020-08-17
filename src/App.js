@@ -11,6 +11,7 @@ import {
 } from './components';
 
 import { getPhotoApiUrl } from './util/apiUtil';
+require('dotenv').config();
 
 class App extends Component {
   constructor(props) {
@@ -122,7 +123,6 @@ class App extends Component {
 
   render() {
     const { images, loading, isMapActive, selectedImages, currentSearch } = this.state;
-
     return (
       <BrowserRouter>
         <Route

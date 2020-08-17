@@ -1,8 +1,6 @@
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
-import { googleMapsApiKey } from '../util/const';
 import ImageThumbnail from './ImageThumbnail';
 
 const GeoLocator = ({ google, items, toggleMap }) => {
@@ -61,7 +59,7 @@ const GeoLocator = ({ google, items, toggleMap }) => {
 };
 
 export default GoogleApiWrapper({
-  apiKey: googleMapsApiKey
+  apiKey: process.env.REACT_APP_MAP_API_KEY
 })(GeoLocator);
 
 GeoLocator.propTypes = {
