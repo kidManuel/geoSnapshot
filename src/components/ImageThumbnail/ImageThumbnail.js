@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './styles';
+
 const ImageThumbnail = ({ data, toggleCallback = () => { }, isSelected, isInGrid }) => {
   const {
     farm,
@@ -10,6 +12,7 @@ const ImageThumbnail = ({ data, toggleCallback = () => { }, isSelected, isInGrid
     title
   } = data;
 
+  // Move to parent
   const getSrcUrl = () => {
     return `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
   };
@@ -21,19 +24,22 @@ const ImageThumbnail = ({ data, toggleCallback = () => { }, isSelected, isInGrid
     return title;
   };
 
+  const classes = styles();
+  const { imageThumbnailWrapper, imageElement, active, imageName, inGrid } = classes;
+
   return (
     <div
-      className={`imageThumbnailWrapper ${isSelected ? 'active' : 'inactive'} ${isInGrid ? 'inGrid' : 'static'}`}
+      className={`${imageThumbnailWrapper} ${isSelected ? active : 'inactive'} ${isInGrid ? inGrid : 'static'}`}
       onClick={() => toggleCallback(data)}
     >
       <img
-        className='imageElement'
+        className={imageElement}
         src={getSrcUrl()}
         alt={title}
       />
       {
         title
-          ? <div className='imageName'>
+          ? <div className={imageName}>
             {prepLabelString()}
           </div>
           : null

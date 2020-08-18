@@ -1,7 +1,9 @@
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import ImageThumbnail from './ImageThumbnail';
+
+import { ImageThumbnail } from '../';
+import styles from './styles'
 
 const GeoLocator = ({ google, items, toggleMap }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -25,14 +27,17 @@ const GeoLocator = ({ google, items, toggleMap }) => {
     toggleMap();
   };
 
+  const classes = styles();
+  const { geoWrapper, toggleButton, iconToggle, geoLocator } = classes;
+
   return (
-    <div className='geoWrapper'>
+    <div className={geoWrapper}>
       <div
-        className='toggleButton'
+        className={toggleButton}
         onClick={toggleExpand}
       >
-        <svg height='32' width='32'>
-          <path className='iconToggle' d='M3.58,13.99l15.83,10.7c1.19,0.81,2.81-0.05,2.81-1.49V1.8c0-1.44-1.61-2.3-2.81-1.49L3.58,11.01
+        <svg height='25' width='19'>
+          <path className={iconToggle} d='M3.58,13.99l15.83,10.7c1.19,0.81,2.81-0.05,2.81-1.49V1.8c0-1.44-1.61-2.3-2.81-1.49L3.58,11.01
      C2.52,11.72,2.52,13.28,3.58,13.99z'/>
         </svg>
       </div>
@@ -40,7 +45,7 @@ const GeoLocator = ({ google, items, toggleMap }) => {
         google={google}
         zoom={2}
         initialCenter={{ lat: 48.701, lng: 16.087 }}
-        className='geoLocator'
+        className={geoLocator}
       >
         {
           items.map((item) => prepMarker(item))

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './styles';
+
 const Form = ({ handleSubmit, history }) => {
   const [currentValue, setCurrentValue] = useState('');
   useEffect(() => {
@@ -20,9 +22,16 @@ const Form = ({ handleSubmit, history }) => {
     handleSubmit(currentValue, history, event);
   };
 
+  const classes = styles();
+  const {
+    searchForm,
+    searchInput,
+    searchButton
+  } = classes;
+
   return (
     <form
-      className='search-form'
+      className={searchForm}
       onSubmit={event => formSubmit(event)}
     >
       <input
@@ -31,11 +40,11 @@ const Form = ({ handleSubmit, history }) => {
         placeholder='Search...'
         onChange={updateSearchInputValue}
         value={currentValue}
-        className='searchInput'
+        className={searchInput}
       />
       <button
         type='submit'
-        className={`search-button ${currentValue.trim() ? 'active' : null}`}
+        className={`${searchButton} ${currentValue.trim() ? 'active' : null}`}
         disabled={!currentValue.trim()}
       >
         <svg className='searchIcon' height='32' width='32'>

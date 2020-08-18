@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 
-import { Loader, Gallery } from './';
+import { Loader, Gallery } from '../';
+import styles from './styles';
 
 class Category extends Component {
   componentDidMount() {
@@ -20,9 +22,9 @@ class Category extends Component {
   };
 
   render() {
-    const { loading, images, toggleImageCallback, selectedImages } = this.props;
+    const { loading, images, toggleImageCallback, selectedImages, classes } = this.props;
     return (
-      <div className='category'>
+      <div className={classes.category}>
         {
           loading
             ? <Loader />
@@ -37,7 +39,7 @@ class Category extends Component {
   };
 };
 
-export default Category;
+export default injectSheet(styles)(Category);
 
 Category.propTypes = {
   searchTerm: PropTypes.string,

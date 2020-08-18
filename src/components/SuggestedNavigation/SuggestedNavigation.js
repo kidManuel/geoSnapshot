@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { pickRandomSuggestions } from '../util/suggestionsList';
+import { pickRandomSuggestions } from '../../util/suggestionsList';
 
 const SuggestedNavigation = ({ handleSubmit, history }) => {
   const [suggestions, setSuggestions] = useState(pickRandomSuggestions());

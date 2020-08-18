@@ -24,6 +24,7 @@ module.exports = {
   },
   rules: {
     'semi': ['error', 'always'],
-    'space-before-function-paren': ["error", "never"]
+    'space-before-function-paren': ["error", "never"],
+    'object-curly-spacing': ['error', 'always']
   }
 }

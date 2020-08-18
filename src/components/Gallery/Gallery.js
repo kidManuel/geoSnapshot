@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { NoImages, ImageThumbnail } from './';
+import { NoImages, ImageThumbnail } from '../';
+import styles from './styles';
+import { scrollbarStyle } from '../StyledScrollbar';
 
 const Gallery = ({ data, toggleImageCallback, selectedImages }) => {
   const isImageSelected = (image) => {
     return !!selectedImages.find((element) => element.id === image.id);
   };
 
+  const classes = styles();
+  const scrollbar = scrollbarStyle();
+
   return (
-    <div className='imageGallery styledScrollbar'>
+    <div className={`${classes.imageGallery} ${scrollbar.styledScrollbar}`}>
       {
         data.length
           ? data.map(image => (

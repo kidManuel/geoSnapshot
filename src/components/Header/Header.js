@@ -1,18 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, SuggestedNavigation } from './';
+import { Form, SuggestedNavigation } from '../';
+import styles from './styles'
 
 const Header = ({ history, handleSubmit }) => {
+  const classes = styles();
+  const { pageHeader, pageLogo, geo, snapshot, headerMain } = classes;
+
   return (
-    <div className='pageHeader'>
+    <div className={pageHeader}>
       <div
-        className='pageLogo'
+        className={pageLogo}
         onClick={() => handleSubmit('', history)}
       >
-        <span id='geo'>geo</span><span id='snapshot'>SNAPSHOT</span>
+        <span className={geo}>geo</span><span className={snapshot}>SNAPSHOT</span>
       </div>
-      <div className='headerMain'>
+      <div className={headerMain}>
         <Form history={history} handleSubmit={handleSubmit} />
         <SuggestedNavigation handleSubmit={handleSubmit} history={history} />
       </div>

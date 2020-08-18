@@ -1,14 +1,15 @@
-import Category from './Category';
-import Form from './Form';
-import Gallery from './Gallery';
-import GeoLocator from './GeoLocator';
-import Header from './Header';
-import ImageThumbnail from './ImageThumbnail';
-import Loader from './Loader';
-import SuggestedNavigation from './SuggestedNavigation';
-import NoImages from './NoImages';
-import NotFound from './NotFound';
-import Welcome from './Welcome';
+import { Category } from './Category/';
+import { Form } from './Form/';
+import { Gallery } from './Gallery/';
+import { GeoLocator } from './GeoLocator/';
+import { Header } from './Header/';
+import { ImageThumbnail } from './ImageThumbnail/';
+import { Loader } from './Loader/';
+import { SuggestedNavigation } from './SuggestedNavigation/';
+import { NoImages } from './NoImages/';
+import { NotFound } from './NotFound/';
+import { Welcome } from './Welcome/';
+import { scrollbarStyle } from './StyledScrollbar/';
 
 export {
   Category,
@@ -21,5 +22,6 @@ export {
   SuggestedNavigation,
   NoImages,
   NotFound,
-  Welcome
+  Welcome,
+  scrollbarStyle
 };

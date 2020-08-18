@@ -6,65 +6,11 @@ body {
   overflow: hidden;
 }
 
-.styledScrollbar {
-  scrollbar-width: 'thin';
-  scrollbar-color: 'rgba(19, 19, 19, 0.7) rgba(18, 18, 18, 0.3)'
-}
-
-.styledScrollbar::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-.styledScrollbar::-webkit-scrollbar-track {
-  background: #606368;
-  border-radius: 3px;
-}
-
-.styledScrollbar::-webkit-scrollbar-thumb {
-  background-color: #03DAC5;
-  border-radius: 6px;
-}
-
-.search-button {
-  outline: none;
-  border: none;
-  padding: 0px 15px;
-  border-radius: 0 0.35em 0.35em 0;
-  cursor: pointer;
-  background-color: #1f1f1f;
-  transition: all 0.3s;
-}
-
 .searchIcon {
   transform: scale(.7);
   transition: all 0.2s;
 }
 
-.search-button.active .searchIcon path {
-  transform: scale(1.1);
-  fill: #03DAC5;
-}
-
-.imageGallery {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 75vh;
-  -ms-align-items: flex-start;
-  align-items: center;
-  overflow-x: scroll;
-}
-
-.imageElement {
-  width: 100%;
-  transform: scale(1);
-  transition: transform 0.5s;
-}
-
-.singleImage:hover .imageElement {
-  transform: scale(1.35);
-}
 
 .imageGallery .not-found {
   width: 100%;
@@ -83,60 +29,6 @@ body {
   margin-right: auto;
 }
 
-.category {
-  width: 80vw;
-  margin: 0 auto;
-  position: relative;
-}
-
-.imageThumbnailWrapper {
-  overflow: hidden;
-  margin-bottom: 15px;
-  margin: 3px;
-  border-radius: 5px;
-  position: relative;
-  line-height: 0;
-  border: solid 2px rgba(255, 255, 255, 0);
-  transition: border 0.3s;
-  cursor: pointer;
-  width: 13%;
-}
-
-.imageThumbnailWrapper:hover {
-  border: solid 2px rgba(255, 255, 255, .8);
-}
-
-.imageThumbnailWrapper.active {
-  border: solid 3px #03DAC5;
-}
-
-.imageName {
-  width: 100%;
-  background-color: #1f1f1f;
-  color: #03DAC5;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  padding: 5px 20px;
-  box-sizing: border-box;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  transition: all 0.4s;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 14px;
-  line-height: 16px;
-}
-
-.imageThumbnailWrapper.inGrid .imageName {
-  bottom: -100%;
-}
-
-.imageThumbnailWrapper.inGrid:hover .imageName {
-  bottom: 0%;
-}
 
 @keyframes spin {
   0% {
@@ -152,36 +44,6 @@ body {
   padding-top: 5%;
 }
 
-.pageHeader {
-  padding: 20px;
-  height: 12vh;
-  background-color: #03DAC5;
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.pageLogo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-right: 50px;
-  color: #1f1f1f;
-  cursor: pointer;
-}
-
-#geo {
-  font-weight: 200;
-  font-size: 20px;
-  text-decoration: none;
-}
-
-#snapshot {
-  font-size: 20px;
-  font-weight: 900;
-  text-decoration: none;
-}
-
 .navSuggestionWrapper {
   margin-top: 15px;
   flex-basis: 100%;
@@ -191,26 +53,6 @@ body {
 
 .navSuggestionLinkList {
   display: flex;
-}
-
-.searchInput {
-  font-size: 16px;
-  background-color: #edeff0;
-  padding: 5px 15px;
-  border: 0;
-  border-right: none;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  width: 100%;
-}
-
-.search-form {
-  display: flex;
-  flex-grow: 1;
-}
-
-.headerMain {
-  flex-grow: 1;
 }
 
 .navLink {
@@ -253,40 +95,6 @@ body {
   position: absolute;
   top: 12vh;
   transition: right 0.4s;
-}
-
-.geoWrapper {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.toggleButton {
-  height: 100%;
-  width: 3vw;
-  display: flex;
-  position: absolute;
-  left: -3vw;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.4s;
-  cursor: pointer;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-.toggleButton:hover {
-  background-color: #03DAC5;
-}
-
-.iconToggle {
-  fill: #03DAC5;
-  transition: fill 0.4s;
-  transform: rotate(0deg);
-}
-
-.toggleButton:hover .iconToggle {
-  fill: #1f1f1f;
 }
 
 .snapShotContainer.inactive .toggleButton {
