@@ -54,6 +54,7 @@ class App extends Component {
     const { memo } = this.state;
     const memoizedData = memo[query];
 
+    // Not using React's own memo utilities such as React.memo, or PureComponents to practice manual memoization.
     if (memoizedData) {
       this.setState({
         images: memoizedData,
@@ -142,14 +143,12 @@ class App extends Component {
           )}
         />
         <main className={`snapShotContainer ${isMapActive ? 'active' : 'inactive'}`}>
-
           <CategoryTooltip
             pickAll={this.pickAll}
             pickNone={this.pickNone}
             showTooltip={!!selectedImages.length}
             currentSearch={currentSearch}
           />
-
           <Switch>
             <Route
               exact
