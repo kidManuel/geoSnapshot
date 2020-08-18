@@ -29,17 +29,17 @@ const ImageThumbnail = ({ src, title, id, toggleCallback = () => { }, isSelected
 
   return (
     <div
-      className={`${imageThumbnailWrapper} ${isSelected && active} ${(!disableAnimation) && interactive} ${(!exists) && destroy}`}
-      onClick={() => toggleCallback(id)}
+      className={ `${imageThumbnailWrapper} ${isSelected && active} ${(!disableAnimation) && interactive} ${(!exists) && destroy}` }
+      onClick={ () => toggleCallback(id) }
     >
       <img
-        className={imageElement}
-        src={src}
-        alt={title}
-        onLoad={finishLoad}
-        onError={markAsFailure}
+        className={ imageElement }
+        src={ src }
+        alt={ title }
+        onLoad={ finishLoad }
+        onError={ markAsFailure }
       />
-      {title && <div className={imageName}>{title}</div>}
+      {title && <div className={ imageName }>{title}</div>}
       {isLoading && <Loader />}
     </div>
   );
