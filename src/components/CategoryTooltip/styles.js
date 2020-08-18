@@ -35,7 +35,7 @@ const styles = createUseStyles({
     color: '#03DAC5',
     opacity: 0,
     transition: 'opacity 0.3s',
-    '&.inactive': {
+    '&.active': {
       opacity: 1,
     }
   },
