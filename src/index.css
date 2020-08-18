@@ -6,11 +6,6 @@ body {
   overflow: hidden;
 }
 
-.searchIcon {
-  transform: scale(.7);
-  transition: all 0.2s;
-}
-
 /* Super ugly selector, but google-maps-react creates a non-configurable div we need to target    */
 /* https://github.com/fullstackreact/google-maps-react/blob/master/src/GoogleApiComponent.js      */
 /* Line 129                                                                                       */

@@ -15,6 +15,10 @@ const styles = createUseStyles({
     outline: 'none',
     width: '100%'
   },
+  searchIcon: {
+    transform: 'scale(.7)',
+    transition: 'all 0.2s',
+  },
   searchButton: {
     outline: 'none',
     border: 'none',
@@ -23,7 +27,7 @@ const styles = createUseStyles({
     cursor: 'pointer',
     backgroundColor: '#1f1f1f',
     transition: 'all 0.3s',
-    '&.active .searchIcon path': {
+    '&.active $searchIcon path': {
       transform: 'scale(1.1)',
       fill: '#03DAC5'
     }
