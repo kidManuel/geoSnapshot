@@ -5,7 +5,7 @@ import styles from './styles';
 const Loader = () => {
   const classes = styles();
   return (
-    <div className={classes.loader} />
+    <div className={ classes.loader } />
   );
 };
 

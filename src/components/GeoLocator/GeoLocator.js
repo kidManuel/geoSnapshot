@@ -55,7 +55,7 @@ const GeoLocator = ({ google, items, toggleMap }) => {
         hoveredItem
           ? <ImageThumbnail
             data={hoveredItem}
-            isInGrid={false}
+            disableAnimation={true}
           />
           : null
       }

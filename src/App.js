@@ -130,65 +130,62 @@ class App extends Component {
 
   render() {
     const { images, loading, isMapActive, selectedImages, currentSearch } = this.state;
-    console.log(images)
     return (
       <BrowserRouter>
         <Route
-          render={props => (
+          render={ props => (
             <Header
-              handleSubmit={this.handleSubmit}
-              history={props.history}
+              handleSubmit={ this.handleSubmit }
+              history={ props.history }
             />
-          )}
+          ) }
         />
-        <main className={`snapShotContainer ${isMapActive ? 'active' : 'inactive'}`}>
+        <main className={ `snapShotContainer ${isMapActive ? 'active' : 'inactive'}` }>
 
-
-          <div className={`categoryInfo ${currentSearch.length ? 'active' : 'inactive'}`}>
+          <div className={ `categoryInfo ${currentSearch.length ? 'active' : 'inactive'}` }>
             <h2 className='categoryTitle'>Showing pictures of: <span className='searchQueryInCategory'>{currentSearch}</span></h2>
             <div className="displayOptions">
               <h3
                 className="massSelector"
-                onClick={this.pickAll}
+                onClick={ this.pickAll }
               >
                 Pick All
               </h3>
               <h3
                 className="massSelector"
-                onClick={this.pickNone}
+                onClick={ this.pickNone }
               >
                 Clear Selection
               </h3>
             </div>
-            <div className={`selectionTooltip ${selectedImages.length ? 'active' : 'inactive'}`}>See your selections in the map! → </div>
+            <div className={ `selectionTooltip ${selectedImages.length ? 'active' : 'inactive'}` }>See your selections in the map! → </div>
           </div>
-
 
           <Switch>
             <Route
               exact
               path='/SnapShot'
-              component={Welcome}
+              component={ Welcome }
             />
             <Route
               path='/:searchInput'
-              render={props => (
+              render={ props => (
                 <Category
-                  searchTerm={props.match.params.searchInput}
-                  images={images}
-                  selectedImages={selectedImages}
-                  loading={loading}
-                  fetchCallback={this.fetchPhotos}
-                  toggleImageCallback={this.toggleImage}
+                  searchTerm={ props.match.params.searchInput }
+                  images={ images }
+                  selectedImages={ selectedImages }
+                  loading={ loading }
+                  fetchCallback={ this.fetchPhotos }
+                  toggleImageCallback={ this.toggleImage }
                 />
-              )}
+              ) }
             />
-            <Route component={NotFound} />
+            <Route component={ NotFound } />
           </Switch>
           <GeoLocator
-            items={this.filterSelectedImagesById()}
-            isOpen={isMapActive}
-            toggleMap={this.toggleMap}
+            items={ this.filterSelectedImagesById() }
+            isOpen={ isMapActive }
+            toggleMap={ this.toggleMap }
           />
         </main>
       </BrowserRouter>

@@ -31,14 +31,14 @@ class Category extends Component {
     } = this.props;
 
     return (
-      <div className={classes.category}>
+      <div className={ classes.category }>
         {
           loading
             ? <Loader />
             : <Gallery
-              data={images}
-              selectedImages={selectedImages}
-              toggleImageCallback={toggleImageCallback}
+              data={ images }
+              selectedImages={ selectedImages }
+              toggleImageCallback={ toggleImageCallback }
             />
         }
       </div>

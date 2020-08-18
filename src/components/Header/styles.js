@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss';
 
 const styles = createUseStyles({
   pageHeader: {
-    padding: '20px',
+    padding: 20,
     height: '12vh',
     backgroundColor: '#03DAC5',
     display: 'flex',
@@ -13,17 +13,17 @@ const styles = createUseStyles({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    marginRight: '50px',
+    marginRight: 50,
     color: '#1f1f1f',
     cursor: 'pointer'
   },
   geo: {
     fontWeight: '200',
-    fontSize: '20px',
+    fontSize: 20,
     textDecoration: 'none'
   },
   snapshot: {
-    fontSize: '20px',
+    fontSize: 20,
     fontWeight: '900',
     textDecoration: 'none'
   },

@@ -6,7 +6,7 @@ const styles = createUseStyles({
     flexGrow: 1
   },
   searchInput: {
-    fontSize: '16px',
+    fontSize: 16,
     backgroundColor: '#edeff0',
     padding: '5px 15px',
     border: 0,

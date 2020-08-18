@@ -7,9 +7,9 @@ const styles = createUseStyles({
     borderTop: '16px solid #051c33',
     /* Blue */
     borderRadius: '50%',
-    width: '120px',
-    height: '120px',
-    animation: 'spin 2s linear infinite',
+    width: 120,
+    height: 120,
+    animation: '$spin 2s linear infinite',
     marginLeft: 'auto',
     marginRight: 'auto'
   },

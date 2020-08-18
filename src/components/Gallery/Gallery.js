@@ -35,10 +35,9 @@ const Gallery = ({ data, toggleImageCallback, selectedImages }) => {
         id={id}
         toggleCallback={toggleImageCallback}
         isSelected={isImageSelected(id)}
-        isInGrid={true}
       />
-    )
-  }
+    );
+  };
 
   return (
     <div className={`${classes.imageGallery} ${scrollbar.styledScrollbar}`}>
