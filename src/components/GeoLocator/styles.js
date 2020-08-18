@@ -30,6 +30,12 @@ const styles = createUseStyles({
     fill: '#03DAC5',
     transition: 'fill 0.4s',
     transform: 'rotate(0deg)'
+  },
+  svgIcon: {},
+  expanded: {
+    '& $svgIcon': {
+      transform: 'rotate(-180deg)',
+    }
   }
 });
 

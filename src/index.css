@@ -19,10 +19,6 @@ body {
   transition: right 0.4s;
 }
 
-.snapShotContainer.inactive .toggleButton {
-  transform: rotate(-180deg);
-}
-
 .snapShotContainer.active>div:nth-child(3) {
   right: -90vw;
 }
