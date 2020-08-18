@@ -1,10 +1,17 @@
 import { createUseStyles } from 'react-jss';
 
 const styles = createUseStyles({
+  markerImage: {},
   geoWrapper: {
     display: 'flex',
     width: '100%',
-    height: '100%'
+    height: '100%',
+    '& $markerImage': {
+      position: 'absolute',
+      bottom: 10,
+      left: 10,
+      width: '20%',
+    }
   },
   toggleButton: {
     height: '100%',
@@ -36,12 +43,6 @@ const styles = createUseStyles({
     '& $svgIcon': {
       transform: 'rotate(-180deg)',
     }
-  },
-  markerImage: {
-    position: 'absolute',
-    bottom: 10,
-    left: 10,
-    width: '20%',
   }
 });
 

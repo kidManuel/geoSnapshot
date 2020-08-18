@@ -2,7 +2,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { ImageThumbnail } from '../';
+import { FlickrImageThumbnail } from '../';
 import styles from './styles';
 
 const GeoLocator = ({ google, items, toggleMap }) => {
@@ -64,7 +64,7 @@ const GeoLocator = ({ google, items, toggleMap }) => {
         }
       </Map>
       {
-        hoveredItem && <ImageThumbnail
+        hoveredItem && <FlickrImageThumbnail
           data={hoveredItem}
           disableAnimation={true}
           extraClass={markerImage}

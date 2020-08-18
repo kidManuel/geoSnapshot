@@ -11,6 +11,7 @@ import { NoImages } from './NoImages/';
 import { NotFound } from './NotFound/';
 import { Welcome } from './Welcome/';
 import { SpecialPage } from './SpecialPage/';
+import { FlickrImageThumbnail } from './FlickrImageThumbnail/';
 import { scrollbarStyle } from './StyledScrollbar/';
 
 export {
@@ -27,5 +28,6 @@ export {
   NotFound,
   Welcome,
   SpecialPage,
+  FlickrImageThumbnail,
   scrollbarStyle
 };

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 import { Loader } from '../Loader';
 
-const ImageThumbnail = ({ src, title, id, toggleCallback = () => { }, isSelected, disableAnimation = false }) => {
+const ImageThumbnail = ({ src, title, id, extraClass, toggleCallback = () => { }, isSelected, disableAnimation = false }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [exists, setExists] = useState(true);
 
@@ -29,17 +29,17 @@ const ImageThumbnail = ({ src, title, id, toggleCallback = () => { }, isSelected
 
   return (
     <div
-      className={ `${imageThumbnailWrapper} ${isSelected && active} ${(!disableAnimation) && interactive} ${(!exists) && destroy}` }
-      onClick={ () => toggleCallback(id) }
+      className={`${imageThumbnailWrapper} ${extraClass || ''} ${isSelected && active} ${(!disableAnimation) && interactive} ${(!exists) && destroy}`}
+      onClick={() => toggleCallback(id)}
     >
       <img
-        className={ imageElement }
-        src={ src }
-        alt={ title }
-        onLoad={ finishLoad }
-        onError={ markAsFailure }
+        className={imageElement}
+        src={src}
+        alt={title}
+        onLoad={finishLoad}
+        onError={markAsFailure}
       />
-      {title && <div className={ imageName }>{title}</div>}
+      {title && <div className={imageName}>{title}</div>}
       {isLoading && <Loader />}
     </div>
   );
