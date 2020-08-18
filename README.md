@@ -21,5 +21,7 @@ You can click on markers to see more info on the map.
 
 - Comprehensive Mobile styles. 1920x1080 is recommended for now, but it will manage with most modern resolutions.
 - Own React Google Map component, or make a few PRs to the one I'm consuming.
+- Testing
+- CI/CD? Maybe a full deploy?
 - More animations
 - The already mentioned user onboarding.
