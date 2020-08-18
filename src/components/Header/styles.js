@@ -7,7 +7,7 @@ const styles = createUseStyles({
     backgroundColor: '#03DAC5',
     display: 'flex',
     alignItems: 'flex-start',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap'
   },
   pageLogo: {
     display: 'flex',
@@ -15,20 +15,20 @@ const styles = createUseStyles({
     alignItems: 'flex-start',
     marginRight: '50px',
     color: '#1f1f1f',
-    cursor: 'pointer',
+    cursor: 'pointer'
   },
   geo: {
     fontWeight: '200',
     fontSize: '20px',
-    textDecoration: 'none',
+    textDecoration: 'none'
   },
   snapshot: {
     fontSize: '20px',
     fontWeight: '900',
-    textDecoration: 'none',
+    textDecoration: 'none'
   },
   headerMain: {
-    flexGrow: 1,
+    flexGrow: 1
   }
 });
 

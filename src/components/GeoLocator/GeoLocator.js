@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { ImageThumbnail } from '../';
-import styles from './styles'
+import styles from './styles';
 
 const GeoLocator = ({ google, items, toggleMap }) => {
   const [hoveredItem, setHoveredItem] = useState(null);

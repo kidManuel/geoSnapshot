@@ -13,21 +13,21 @@ const styles = createUseStyles({
     cursor: 'pointer',
     width: '13%',
     '&:hover': {
-      border: 'solid 2px rgba(255, 255, 255, .8)',
+      border: 'solid 2px rgba(255, 255, 255, .8)'
     },
     '&:hover $imageElement': {
       transform: 'scale(1.35)'
     }
   },
   active: {
-    border: 'solid 3px #03DAC5',
+    border: 'solid 3px #03DAC5'
   },
   inGrid: {
     '& $imageName': {
-      bottom: '-100%',
+      bottom: '-100%'
     },
     '&:hover $imageName': {
-      bottom: '0%',
+      bottom: '0%'
     }
   },
   imageName: {
@@ -47,14 +47,14 @@ const styles = createUseStyles({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     fontSize: '14px',
-    lineHeight: '16px',
+    lineHeight: '16px'
   },
   imageElement: {
     width: '100%',
     transform: 'scale(1)',
-    transition: 'transform 0.5s',
+    transition: 'transform 0.5s'
   }
 
-})
+});
 
 export default styles;

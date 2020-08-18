@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Form, SuggestedNavigation } from '../';
-import styles from './styles'
+import styles from './styles';
 
 const Header = ({ history, handleSubmit }) => {
   const classes = styles();

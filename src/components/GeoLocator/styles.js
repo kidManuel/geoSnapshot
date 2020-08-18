@@ -4,7 +4,7 @@ const styles = createUseStyles({
   geoWrapper: {
     display: 'flex',
     width: '100%',
-    height: '100%',
+    height: '100%'
   },
 
   toggleButton: {
@@ -21,7 +21,7 @@ const styles = createUseStyles({
     borderBottomLeftRadius: '10px',
 
     '&:hover': {
-      backgroundColor: '#03DAC5',
+      backgroundColor: '#03DAC5'
     },
     '&:hover $iconToggle': {
       fill: '#1f1f1f'
@@ -30,8 +30,8 @@ const styles = createUseStyles({
   iconToggle: {
     fill: '#03DAC5',
     transition: 'fill 0.4s',
-    transform: 'rotate(0deg)',
-  },
+    transform: 'rotate(0deg)'
+  }
 });
 
 export default styles;
