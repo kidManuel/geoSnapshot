@@ -11,6 +11,7 @@ import {
 } from './components';
 
 import { getPhotoApiUrl } from './util/apiUtil';
+import CategoryTooltip from './components/CategoryTooltip/CategoryTooltip';
 require('dotenv').config();
 
 class App extends Component {
@@ -116,7 +117,7 @@ class App extends Component {
 
   pickAll() {
     const { images } = this.state;
-    const newSelectedImages = [...images];
+    const newSelectedImages = images.map(element => element.id);
     this.setState({
       selectedImages: newSelectedImages
     });
@@ -141,24 +142,13 @@ class App extends Component {
           )}
         />
         <main className={`snapShotContainer ${isMapActive ? 'active' : 'inactive'}`}>
-          <div className={`categoryInfo ${currentSearch.length ? 'active' : 'inactive'}`}>
-            <h2 className='categoryTitle'>Showing pictures of: <span className='searchQueryInCategory'>{currentSearch}</span></h2>
-            <div className="displayOptions">
-              <h3
-                className="massSelector"
-                onClick={this.pickAll}
-              >
-                Pick All
-              </h3>
-              <h3
-                className="massSelector"
-                onClick={this.pickNone}
-              >
-                Clear Selection
-              </h3>
-            </div>
-            <div className={`selectionTooltip ${selectedImages.length ? 'active' : 'inactive'}`}>See your selections in the map! → </div>
-          </div>
+
+          <CategoryTooltip
+            pickAll={this.pickAll}
+            pickNone={this.pickNone}
+            showTooltip={!!selectedImages.length}
+            currentSearch={currentSearch}
+          />
 
           <Switch>
             <Route
@@ -173,9 +163,6 @@ class App extends Component {
                   searchTerm={props.match.params.searchInput}
                   images={images}
                   selectedImages={selectedImages}
-                  loading={loading}
-                  fetchCallback={this.fetchPhotos}
-                  toggleImageCallback={this.toggleImage}
                   loading={loading}
                   fetchCallback={this.fetchPhotos}
                   toggleImageCallback={this.toggleImage}
