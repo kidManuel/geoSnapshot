@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import injectSheet from 'react-jss';
 
 import {
   Header,
@@ -11,6 +12,7 @@ import {
   CategoryTooltip
 } from './components';
 import { getPhotoApiUrl } from './util/apiUtil';
+import styles from './styles'
 require('dotenv').config();
 
 class App extends Component {
@@ -131,6 +133,9 @@ class App extends Component {
 
   render() {
     const { images, loading, isMapActive, selectedImages, currentSearch } = this.state;
+    const { classes } = this.props;
+    const { snapShotContainer } = classes;
+
     return (
       <BrowserRouter>
         <Route
@@ -141,7 +146,7 @@ class App extends Component {
             />
           )}
         />
-        <main className={`snapShotContainer ${isMapActive ? 'active' : 'inactive'}`}>
+        <main className={`${snapShotContainer} ${isMapActive ? 'active' : 'inactive'}`}>
           <CategoryTooltip
             pickAll={this.pickAll}
             pickNone={this.pickNone}
@@ -180,4 +185,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default injectSheet(styles)(App);

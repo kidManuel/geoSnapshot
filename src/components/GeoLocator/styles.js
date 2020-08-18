@@ -36,6 +36,12 @@ const styles = createUseStyles({
     '& $svgIcon': {
       transform: 'rotate(-180deg)',
     }
+  },
+  markerImage: {
+    position: 'absolute',
+    bottom: 10,
+    left: 10,
+    width: '20%',
   }
 });
 
