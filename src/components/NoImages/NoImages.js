@@ -1,16 +1,12 @@
 import React from 'react';
 
-import styles from './styles';
+import { SpecialPage } from '../'
 
-const NoImages = () => {
-  const classes = styles();
-
-  return (
-    <div className={ classes.specialPage }>
-      <h2>No Images Found</h2>
-      <p>Please try a different search term</p>
-    </div>
-  );
-};
+const NoImages = () => (
+  <SpecialPage>
+    <h2>No Images Found</h2>
+    <p>Please try a different search term</p>
+  </SpecialPage>
+);
 
 export default NoImages;

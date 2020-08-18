@@ -15,7 +15,7 @@ const CategoryTooltip = ({ pickAll, pickNone, showTooltip, currentSearch }) => {
   } = classes;
 
   return (
-    <div className={categoryInfo}>
+    <div className={`${categoryInfo} ${!currentSearch.length && 'inactive'}`}>
       <h2 className={categoryTitle}>Showing pictures of: <span className={searchQueryInCategory}>{currentSearch}</span></h2>
       <div className={displayOptions}>
         <h3

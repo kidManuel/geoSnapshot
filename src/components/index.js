@@ -10,6 +10,7 @@ import { SuggestedNavigation } from './SuggestedNavigation/';
 import { NoImages } from './NoImages/';
 import { NotFound } from './NotFound/';
 import { Welcome } from './Welcome/';
+import { SpecialPage } from './SpecialPage/';
 import { scrollbarStyle } from './StyledScrollbar/';
 
 export {
@@ -25,5 +26,6 @@ export {
   NoImages,
   NotFound,
   Welcome,
+  SpecialPage,
   scrollbarStyle
 };

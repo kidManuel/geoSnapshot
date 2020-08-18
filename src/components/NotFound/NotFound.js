@@ -1,15 +1,10 @@
 import React from 'react';
 
-import styles from './styles';
-
-const NotFound = () => {
-  const classes = styles();
-
-  return (
-    <div className={ classes.notFound }>
-      <h2>Page Not Found</h2>
-    </div>
-  );
-};
+import { SpecialPage } from '../';
+const NotFound = () => (
+  <SpecialPage>
+    <h2>Page Not Found</h2>
+  </SpecialPage>
+);
 
 export default NotFound;
