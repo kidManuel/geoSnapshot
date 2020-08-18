@@ -22,7 +22,14 @@ class Category extends Component {
   };
 
   render() {
-    const { loading, images, toggleImageCallback, selectedImages, classes } = this.props;
+    const {
+      loading,
+      images,
+      toggleImageCallback,
+      selectedImages,
+      classes
+    } = this.props;
+
     return (
       <div className={classes.category}>
         {
@@ -44,7 +51,7 @@ export default injectSheet(styles)(Category);
 Category.propTypes = {
   searchTerm: PropTypes.string,
   images: PropTypes.arrayOf(PropTypes.object),
-  selectedImages: PropTypes.arrayOf(PropTypes.object),
+  selectedImages: PropTypes.arrayOf(PropTypes.string),
   loading: PropTypes.bool,
   fetchCallback: PropTypes.func,
   toggleImageCallback: PropTypes.func

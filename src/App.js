@@ -92,19 +92,26 @@ class App extends Component {
     });
   }
 
-  toggleImage(image) {
+  toggleImage(id) {
     const { selectedImages } = this.state;
     const newSelectedImages = [...selectedImages];
-    const inArrayPosition = newSelectedImages.findIndex((element) => element.id === image.id);
+    const inArrayPosition = newSelectedImages.findIndex((element) => element.id === id);
+
     if (inArrayPosition > -1) {
       newSelectedImages.splice(inArrayPosition, 1);
     } else {
-      newSelectedImages.push(image);
+      newSelectedImages.push(id);
     }
 
     this.setState({
       selectedImages: newSelectedImages
     });
+  }
+
+  filterSelectedImagesById() {
+    const { selectedImages, images } = this.state;
+    const filteredImageData = images.filter(element => selectedImages.includes(element.id));
+    return filteredImageData;
   }
 
   pickAll() {
@@ -123,6 +130,7 @@ class App extends Component {
 
   render() {
     const { images, loading, isMapActive, selectedImages, currentSearch } = this.state;
+    console.log(images)
     return (
       <BrowserRouter>
         <Route
@@ -134,6 +142,8 @@ class App extends Component {
           )}
         />
         <main className={`snapShotContainer ${isMapActive ? 'active' : 'inactive'}`}>
+
+
           <div className={`categoryInfo ${currentSearch.length ? 'active' : 'inactive'}`}>
             <h2 className='categoryTitle'>Showing pictures of: <span className='searchQueryInCategory'>{currentSearch}</span></h2>
             <div className="displayOptions">
@@ -152,6 +162,8 @@ class App extends Component {
             </div>
             <div className={`selectionTooltip ${selectedImages.length ? 'active' : 'inactive'}`}>See your selections in the map! → </div>
           </div>
+
+
           <Switch>
             <Route
               exact
@@ -174,7 +186,7 @@ class App extends Component {
             <Route component={NotFound} />
           </Switch>
           <GeoLocator
-            items={selectedImages}
+            items={this.filterSelectedImagesById()}
             isOpen={isMapActive}
             toggleMap={this.toggleMap}
           />
