@@ -142,8 +142,6 @@ class App extends Component {
           )}
         />
         <main className={`snapShotContainer ${isMapActive ? 'active' : 'inactive'}`}>
-
-
           <div className={`categoryInfo ${currentSearch.length ? 'active' : 'inactive'}`}>
             <h2 className='categoryTitle'>Showing pictures of: <span className='searchQueryInCategory'>{currentSearch}</span></h2>
             <div className="displayOptions">

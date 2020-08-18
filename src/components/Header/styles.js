@@ -2,8 +2,7 @@ import { createUseStyles } from 'react-jss';
 
 const styles = createUseStyles({
   pageHeader: {
-    padding: '20px',
-    height: '12vh',
+    padding: 20,
     backgroundColor: '#03DAC5',
     display: 'flex',
     alignItems: 'flex-start',
