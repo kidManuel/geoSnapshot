@@ -1,34 +1,52 @@
 import { createUseStyles } from 'react-jss';
 
 const styles = createUseStyles({
-  pageHeader: {
-    padding: 20,
-    backgroundColor: '#03DAC5',
+
+  categoryTitle: {
+    height: '8vh',
     display: 'flex',
-    alignItems: 'flex-start',
-    flexWrap: 'wrap'
+    alignItems: 'center',
+    color: 'white',
+    fontSize: 35,
   },
-  pageLogo: {
+  categoryInfo: {
     display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    marginRight: 50,
-    color: '#1f1f1f',
-    cursor: 'pointer'
+    width: '80vw',
+    margin: '0 auto',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    opacity: '1',
+
+    '&.inactive': {
+      opacity: 0,
+    }
   },
-  geo: {
-    fontWeight: '200',
-    fontSize: 20,
-    textDecoration: 'none'
-  },
-  snapshot: {
-    fontSize: 20,
+  massSelector: {
+    color: 'white',
+    marginLeft: 25,
     fontWeight: '900',
-    textDecoration: 'none'
+    cursor: 'pointer',
+    '&:hover': {
+      textDecoration: 'underline',
+    }
   },
-  headerMain: {
-    flexGrow: 1
+  selectionTooltip: {
+    fontSize: '20px',
+    color: '#03DAC5',
+    opacity: 0,
+    transition: 'opacity 0.3s',
+    '&.inactive': {
+      opacity: 1,
+    }
+  },
+  displayOptions: {
+    display: 'flex',
+  },
+  searchQueryInCategory: {
+    fontWeight: 900,
+    marginLeft: 15,
+    color: '#03DAC5',
   }
-});
+})
 
 export default styles;

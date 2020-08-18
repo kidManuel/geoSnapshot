@@ -1,4 +1,5 @@
 import { Category } from './Category/';
+import { CategoryTooltip } from './CategoryTooltip/';
 import { Form } from './Form/';
 import { Gallery } from './Gallery/';
 import { GeoLocator } from './GeoLocator/';
@@ -13,6 +14,7 @@ import { scrollbarStyle } from './StyledScrollbar/';
 
 export {
   Category,
+  CategoryTooltip,
   Form,
   Gallery,
   GeoLocator,

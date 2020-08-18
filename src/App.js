@@ -7,11 +7,10 @@ import {
   Category,
   NotFound,
   Welcome,
-  GeoLocator
+  GeoLocator,
+  CategoryTooltip
 } from './components';
-
 import { getPhotoApiUrl } from './util/apiUtil';
-import CategoryTooltip from './components/CategoryTooltip/CategoryTooltip';
 require('dotenv').config();
 
 class App extends Component {

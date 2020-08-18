@@ -11,25 +11,11 @@ body {
   transition: all 0.2s;
 }
 
-.categoryTitle {
-  height: 8vh;
-  display: flex;
-  align-items: center;
-  color: white;
-  font-size: 35px;
-}
-
 .specialPage {
   font-size: 60px;
   font-weight: 900;
   color: white;
   line-height: 70px;
-}
-
-.searchQueryInCategory {
-  font-weight: 900;
-  margin-left: 15px;
-  color: #03DAC5;
 }
 
 /* Super ugly selector, but google-maps-react creates a non-configurable div we need to target    */
@@ -53,34 +39,6 @@ body {
   right: -90vw;
 }
 
-.displayOptions {
-  display: flex;
-}
-
-.categoryInfo {
-  display: flex;
-  width: 80vw;
-  margin: 0 auto;
-  justify-content: space-between;
-  align-items: center;
-  opacity: 1;
-}
-
-.categoryInfo.inactive {
-  opacity: 0;
-}
-
-.massSelector {
-  color: white;
-  margin-left: 25px;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.massSelector:hover {
-  text-decoration: underline;
-}
-
 .welcomeGeo {
   color: #03DAC5;
 }
@@ -90,15 +48,4 @@ body {
   bottom: 10px;
   left: 10px;
   width: 20%;
-}
-
-.selectionTooltip {
-  font-size: 20px;
-  color: #03DAC5;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.selectionTooltip.active {
-  opacity: 1;
 }
