@@ -95,7 +95,7 @@ class App extends Component {
   toggleImage(id) {
     const { selectedImages } = this.state;
     const newSelectedImages = [...selectedImages];
-    const inArrayPosition = newSelectedImages.findIndex((element) => element.id === id);
+    const inArrayPosition = newSelectedImages.findIndex((element) => element === id);
 
     if (inArrayPosition > -1) {
       newSelectedImages.splice(inArrayPosition, 1);
@@ -177,15 +177,18 @@ class App extends Component {
                   loading={ loading }
                   fetchCallback={ this.fetchPhotos }
                   toggleImageCallback={ this.toggleImage }
+                  loading={loading}
+                  fetchCallback={this.fetchPhotos}
+                  toggleImageCallback={this.toggleImage}
                 />
-              ) }
+              )}
             />
-            <Route component={ NotFound } />
+            <Route component={NotFound} />
           </Switch>
           <GeoLocator
-            items={ this.filterSelectedImagesById() }
-            isOpen={ isMapActive }
-            toggleMap={ this.toggleMap }
+            items={this.filterSelectedImagesById()}
+            isOpen={isMapActive}
+            toggleMap={this.toggleMap}
           />
         </main>
       </BrowserRouter>

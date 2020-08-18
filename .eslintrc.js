@@ -26,6 +26,6 @@ module.exports = {
     'semi': ['error', 'always'],
     'space-before-function-paren': ["error", "never"],
     'object-curly-spacing': ['error', 'always'],
-    'react/jsx-curly-spacing': [2, "always"]
+    'react/jsx-curly-spacing': ['error', "always"]
   }
 }
