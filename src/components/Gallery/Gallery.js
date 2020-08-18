@@ -29,19 +29,18 @@ const Gallery = ({ data, toggleImageCallback, selectedImages }) => {
 
     return (
       <ImageThumbnail
-        key={id}
-        title={prepLabelString()}
-        src={getSrcUrl()}
-        id={id}
-        toggleCallback={toggleImageCallback}
-        isSelected={isImageSelected(id)}
-        isInGrid={true}
+        key={ id }
+        title={ prepLabelString() }
+        src={ getSrcUrl() }
+        id={ id }
+        toggleCallback={ toggleImageCallback }
+        isSelected={ isImageSelected(id) }
       />
-    )
-  }
+    );
+  };
 
   return (
-    <div className={`${classes.imageGallery} ${scrollbar.styledScrollbar}`}>
+    <div className={ `${classes.imageGallery} ${scrollbar.styledScrollbar}` }>
       {
         data.length
           ? data.map(image => prepImageThumbnail(image))

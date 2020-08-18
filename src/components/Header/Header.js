@@ -9,16 +9,16 @@ const Header = ({ history, handleSubmit }) => {
   const { pageHeader, pageLogo, geo, snapshot, headerMain } = classes;
 
   return (
-    <div className={pageHeader}>
+    <div className={ pageHeader }>
       <div
-        className={pageLogo}
-        onClick={() => handleSubmit('', history)}
+        className={ pageLogo }
+        onClick={ () => handleSubmit('', history) }
       >
-        <span className={geo}>geo</span><span className={snapshot}>SNAPSHOT</span>
+        <span className={ geo }>geo</span><span className={ snapshot }>SNAPSHOT</span>
       </div>
-      <div className={headerMain}>
-        <Form history={history} handleSubmit={handleSubmit} />
-        <SuggestedNavigation handleSubmit={handleSubmit} history={history} />
+      <div className={ headerMain }>
+        <Form history={ history } handleSubmit={ handleSubmit } />
+        <SuggestedNavigation handleSubmit={ handleSubmit } history={ history } />
       </div>
     </div>
   );

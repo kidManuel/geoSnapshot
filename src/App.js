@@ -95,7 +95,7 @@ class App extends Component {
   toggleImage(id) {
     const { selectedImages } = this.state;
     const newSelectedImages = [...selectedImages];
-    const inArrayPosition = newSelectedImages.findIndex((element) => element.id === id);
+    const inArrayPosition = newSelectedImages.findIndex((element) => element === id);
 
     if (inArrayPosition > -1) {
       newSelectedImages.splice(inArrayPosition, 1);
@@ -130,7 +130,6 @@ class App extends Component {
 
   render() {
     const { images, loading, isMapActive, selectedImages, currentSearch } = this.state;
-    console.log(images)
     return (
       <BrowserRouter>
         <Route
@@ -161,7 +160,6 @@ class App extends Component {
             <div className={`selectionTooltip ${selectedImages.length ? 'active' : 'inactive'}`}>See your selections in the map! → </div>
           </div>
 
-
           <Switch>
             <Route
               exact
@@ -175,6 +173,9 @@ class App extends Component {
                   searchTerm={props.match.params.searchInput}
                   images={images}
                   selectedImages={selectedImages}
+                  loading={loading}
+                  fetchCallback={this.fetchPhotos}
+                  toggleImageCallback={this.toggleImage}
                   loading={loading}
                   fetchCallback={this.fetchPhotos}
                   toggleImageCallback={this.toggleImage}

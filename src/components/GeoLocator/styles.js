@@ -6,7 +6,6 @@ const styles = createUseStyles({
     width: '100%',
     height: '100%'
   },
-
   toggleButton: {
     height: '100%',
     width: '3vw',
@@ -17,8 +16,8 @@ const styles = createUseStyles({
     justifyContent: 'center',
     transition: 'background 0.4s',
     cursor: 'pointer',
-    borderTopLeftRadius: '10px',
-    borderBottomLeftRadius: '10px',
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
 
     '&:hover': {
       backgroundColor: '#03DAC5'

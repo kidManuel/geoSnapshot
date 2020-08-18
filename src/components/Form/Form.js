@@ -31,21 +31,21 @@ const Form = ({ handleSubmit, history }) => {
 
   return (
     <form
-      className={searchForm}
-      onSubmit={event => formSubmit(event)}
+      className={ searchForm }
+      onSubmit={ event => formSubmit(event) }
     >
       <input
         type='text'
         name='search'
         placeholder='Search...'
-        onChange={updateSearchInputValue}
-        value={currentValue}
-        className={searchInput}
+        onChange={ updateSearchInputValue }
+        value={ currentValue }
+        className={ searchInput }
       />
       <button
         type='submit'
-        className={`${searchButton} ${currentValue.trim() ? 'active' : null}`}
-        disabled={!currentValue.trim()}
+        className={ `${searchButton} ${currentValue.trim() ? 'active' : null}` }
+        disabled={ !currentValue.trim() }
       >
         <svg className='searchIcon' height='32' width='32'>
           <path

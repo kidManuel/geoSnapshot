@@ -5,11 +5,11 @@ const styles = createUseStyles({
     marginTop: 15,
     flexBasis: '100%',
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'center'
   },
 
   navSuggestionLinkList: {
-    display: 'flex',
+    display: 'flex'
   },
 
   navLink: {
@@ -18,14 +18,14 @@ const styles = createUseStyles({
     fontWeight: 700,
     margin: '0 5px',
     '&:hover': {
-      textDecoration: 'underline',
-    },
+      textDecoration: 'underline'
+    }
   },
   navSuggestion: {
     '&.active': {
       backgroundColor: '#051c33'
-    },
-  },
+    }
+  }
 });
 
 export default styles;
